@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:drawable/dialog_frame"
+
+    android:backgroundTint="#34495E"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tituloApp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/contador"
+        android:layout_width="165dp"
+        android:layout_height="141dp"
+        android:background="@drawable/bg_contador"
+        android:fontFamily="monospace"
+
+        android:gravity="center"
+        android:text="@string/contador"
+        android:textColor="#FFFFFF"
+        android:textSize="48sp"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMas"
+        app:layout_constraintEnd_toStartOf="@+id/btnMas"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnMenos"
+        app:layout_constraintTop_toTopOf="@+id/btnMas"
+        app:layout_constraintVertical_bias="0.493" />
+
+    <ImageButton
+        android:id="@+id/btnMas"
+        android:layout_width="80dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="72dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/desc_botonMas"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/contador"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:srcCompat="@drawable/botonmas" />
+
+    <ImageButton
+        android:id="@+id/btnMenos"
+        android:layout_width="74dp"
+        android:layout_height="69dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/desc_botonMenos"
+        android:onClick="onClick"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/contador"
+        app:layout_constraintEnd_toStartOf="@+id/contador"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/contador"
+        app:srcCompat="@drawable/botonmenos" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/groupChips"
+        android:layout_width="197dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="36dp"
+        android:gravity="center|center_vertical"
+        android:textAlignment="center"
+        app:checkedChip="@id/chipNegative"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/chipGroup1"
+        app:layout_constraintTop_toBottomOf="@+id/btnMas"
+        app:singleLine="false"
+        tools:ignore="TextSizeCheck">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="@string/opc_activar_personalizacion"
+            android:textAlignment="center"
+            app:checkedIconEnabled="true" />
+
+        <TextView
+            android:id="@+id/textViewContador"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/textViewColorContador"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:visibility="gone" />
+
+        <Spinner
+            android:id="@+id/spinnerContador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#28FFFFFF"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:padding="0dp"
+            android:textAlignment="center"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textViewFondo"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/textViewColorFondo"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:visibility="gone" />
+
+        <Spinner
+            android:id="@+id/spinnerFondo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#28FFFFFF"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:padding="0dp"
+            android:textAlignment="center"
+            android:visibility="gone" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="190dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/chipGroup1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/groupChips">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipLimit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:onClick="onClick"
+            android:text="@string/opc_activar_meta"
+            android:textAlignment="center"
+            app:checkedIconEnabled="true" />
+
+        <EditText
+            android:id="@+id/editTextMeta"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/opc_introduce_el_numero_deseado"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#CFD8DC"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup1"
+        android:layout_width="224dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:foregroundGravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/groupChips"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/chipGroup"
+        app:layout_constraintTop_toBottomOf="@+id/btnMas">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipNegative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:checked="true"
+            android:onClick="onClick"
+            android:text="@string/opc_negativos"
+            android:textAlignment="center"
+            app:checkedIconVisible="true"
+            app:chipIconVisible="false" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip2by2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:onClick="onClick"
+            android:text="@string/opc_aumentar_disminuir_2"
+            android:textAlignment="center"
+            app:checkedIconVisible="true" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <ImageView
+        android:id="@+id/fondoDifuminado"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:alpha="0.8"
+        android:background="#000000"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/congratsImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/congratulations" />
+
+    <ImageView
+        android:id="@+id/btnContinuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="264dp"
+        android:onClick="onClick"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/congratsImg"
+        app:srcCompat="@drawable/btn_continue"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

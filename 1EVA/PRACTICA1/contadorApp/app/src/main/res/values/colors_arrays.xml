@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="colors_array">
+
+        <item>#FF5733</item> <!-- Rojo -->
+        <item>#2ECC71</item> <!-- Verde -->
+        <item>#FFA500</item> <!-- Naranja -->
+        <item>#3498DB</item> <!-- Azul -->
+        <item>#E74C3C</item> <!-- Rojo oscuro -->
+        <item>#FFD700</item> <!-- Amarillo -->
+        <item>#D35400</item> <!-- Naranja oscuro -->
+        <item>#8E44AD</item> <!-- Morado oscuro -->
+        <item>#2980B9</item> <!-- Azul claro -->
+        <item>#9C640C</item> <!-- Marrón -->
+        <item>#16A085</item> <!-- Turquesa -->
+        <item>#34495E</item> <!-- Azul oscuro -->
+        <item>#FFFFFF</item> <!-- Blanco -->
+    </string-array>
+</resources>

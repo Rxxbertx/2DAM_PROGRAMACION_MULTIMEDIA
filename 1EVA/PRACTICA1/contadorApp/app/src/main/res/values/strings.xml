@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TestClase3</string>
+    <string name="opc_negativos">Desactivar Negativos</string>
+    <string name="opc_aumentar_disminuir_2">Aumentar / Disminuir 2</string>
+    <string name="opc_activar_meta">Activar Meta</string>
+    <string name="opc_activar_personalizacion">Activar Personalizacion</string>
+    <string name="opc_introduce_el_numero_deseado">Introduce el numero deseado</string>
+    <string name="desc_botonMenos">boton para disminuir el contador</string>
+    <string name="tituloApp">CONTADOR APP</string>
+    <string name="contador">0</string>
+    <string name="desc_botonMas">boton para sumar contador</string>
+    <string name="textViewColorContador">Contador</string>
+    <string name="textViewColorFondo">Fondo</string>
+</resources>
