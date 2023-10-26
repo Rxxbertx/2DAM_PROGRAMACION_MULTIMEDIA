@@ -11,4 +11,9 @@
     <string name="dadoEscodigo">Dado de 8 caras saca un</string>
     <string name="puntuacion">123</string>
     <string name="puntuacionDado">7</string>
+    <string name="resultados">Resultados</string>
+    <string name="puntuacionInfo">Usuario ha logrado un total de XX puntos en X tiradas</string>
+    <string name="puntuacion4caras">X tiradas con el dado de 4 caras para lograr XX puntos</string>
+    <string name="puntuacion6caras">X tiradas con el dado de 6 caras para lograr XX puntos</string>
+    <string name="puntuacion8caras">X tiradas con el dado de 8 caras para lograr XX puntos</string>
 </resources>
