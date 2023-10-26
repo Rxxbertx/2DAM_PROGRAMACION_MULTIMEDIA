@@ -11,7 +11,11 @@
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginTop="16dp"
+=======
+        android:layout_marginTop="32dp"
+>>>>>>> main
         android:fontFamily="sans-serif-smallcaps"
         android:shadowColor="#908F8F"
         android:shadowDx="-20"
@@ -26,20 +30,36 @@
 
     <ImageView
         android:id="@+id/dados"
+<<<<<<< HEAD
         android:layout_width="107dp"
         android:layout_height="125dp"
         android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+=======
+        android:layout_width="229dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewSiguiente"
+>>>>>>> main
         app:srcCompat="@drawable/dice"
         tools:ignore="ContentDescription" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewUser"
+<<<<<<< HEAD
         android:layout_width="473dp"
         android:layout_height="174dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="103dp"
+=======
+        android:layout_width="match_parent"
+        android:layout_height="173dp"
+        android:layout_marginTop="96dp"
+>>>>>>> main
         android:outlineAmbientShadowColor="#000000"
         android:outlineSpotShadowColor="#000000"
         android:rotation="-4"
@@ -48,13 +68,19 @@
         app:cardBackgroundColor="#DA2323"
         app:cardCornerRadius="20dp"
         app:cardElevation="20dp"
+<<<<<<< HEAD
         app:layout_constraintEnd_toStartOf="@+id/dados"
         app:layout_constraintHorizontal_bias="0.518"
+=======
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+>>>>>>> main
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appName">
 
         <LinearLayout
             android:layout_width="match_parent"
+<<<<<<< HEAD
             android:layout_height="154dp"
             android:background="#00000000"
             android:clipToPadding="false"
@@ -70,6 +96,22 @@
                 android:layout_width="193dp"
                 android:layout_height="57dp"
                 android:layout_gravity="center|center_horizontal"
+=======
+            android:layout_height="197dp"
+            android:layout_gravity="center"
+            android:background="#00000000"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/user"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="50dp"
+>>>>>>> main
                 android:gravity="center"
                 android:rotation="-4"
                 android:rotationX="8"
@@ -81,16 +123,31 @@
                 android:text="@string/usuario"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
+<<<<<<< HEAD
                 android:textSize="34sp"
+=======
+                android:textSize="16sp"
+>>>>>>> main
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/userEdit"
+<<<<<<< HEAD
                 android:layout_width="193dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|center_horizontal"
                 android:autofillHints=""
                 android:focusedByDefault="true"
+=======
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:focusedByDefault="true"
+                android:gravity="start"
+>>>>>>> main
                 android:inputType="text"
                 android:rotation="-4"
                 android:rotationX="8"
@@ -106,8 +163,14 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewSiguiente"
+<<<<<<< HEAD
         android:layout_width="400dp"
         android:layout_height="150dp"
+=======
+        android:layout_width="match_parent"
+        android:layout_height="173dp"
+        android:layout_marginTop="80dp"
+>>>>>>> main
         android:outlineAmbientShadowColor="#000000"
         android:outlineSpotShadowColor="#000000"
         android:rotation="-12"
@@ -117,8 +180,13 @@
         app:cardBackgroundColor="#000000"
         app:cardCornerRadius="20dp"
         app:cardElevation="200dp"
+<<<<<<< HEAD
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+=======
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+>>>>>>> main
         app:layout_constraintTop_toBottomOf="@+id/cardViewUser">
 
         <Button

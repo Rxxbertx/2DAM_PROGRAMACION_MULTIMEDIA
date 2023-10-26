@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.jware.proyecto4_rjt;
 
 import android.os.Bundle;
@@ -13,4 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
     }
+=======
+package com.jware.proyecto4_rjt;public class MainActivity {
+>>>>>>> main
 }

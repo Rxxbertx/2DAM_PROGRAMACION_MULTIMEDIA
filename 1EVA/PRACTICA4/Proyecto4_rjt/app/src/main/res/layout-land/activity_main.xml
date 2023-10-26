@@ -9,6 +9,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginEnd="50dp"
         android:text="@string/appName"
         android:textSize="34sp"
@@ -40,6 +41,36 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+=======
+        android:layout_marginTop="48dp"
+        android:text="@string/appName"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="139dp"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:srcCompat="@drawable/logo"
+        android:importantForAccessibility="no" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+>>>>>>> main
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
@@ -48,6 +79,7 @@
             android:id="@+id/rdGRoup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:orientation="horizontal">
 
             <RadioButton
@@ -55,6 +87,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+=======
+            android:layout_gravity="center"
+            android:layout_marginEnd="20dp">
+
+            <RadioButton
+                android:id="@+id/dado4caras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+>>>>>>> main
                 android:drawableBottom="@drawable/dado4caras"
                 android:text="@string/dado_4_caras"
                 android:textAlignment="center"
@@ -63,11 +104,18 @@
 
             <RadioButton
                 android:id="@+id/dado6caras"
+<<<<<<< HEAD
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="75dp"
                 android:layout_marginRight="75dp"
                 android:layout_weight="1"
+=======
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+>>>>>>> main
                 android:drawableBottom="@drawable/dado6caras"
                 android:text="@string/dado_6_caras"
                 android:textAlignment="center"
@@ -76,9 +124,14 @@
 
             <RadioButton
                 android:id="@+id/dado8caras"
+<<<<<<< HEAD
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+=======
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+>>>>>>> main
                 android:drawableBottom="@drawable/dado8caras"
                 android:text="@string/dado_8_caras"
                 android:textAlignment="center"
@@ -88,6 +141,7 @@
         </RadioGroup>
 
         <LinearLayout
+<<<<<<< HEAD
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -106,26 +160,57 @@
                 android:textColor="#000000"
                 android:textSize="22sp"
                 app:cornerRadius="0dp"
+=======
+            android:layout_width="156dp"
+            android:layout_height="556dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:background="#00FFFFFF"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnTirar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#43A047"
+                android:includeFontPadding="false"
+                android:padding="0dp"
+                android:text="@string/tira_dado"
+                android:textAlignment="center"
+                android:textSize="22sp"
+                app:cornerRadius="5dp"
+>>>>>>> main
                 app:iconPadding="0dp" />
 
             <TextView
                 android:id="@+id/textView3"
+<<<<<<< HEAD
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="0dp"
+=======
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+>>>>>>> main
                 android:layout_weight="1"
                 android:background="#FDFA35"
                 android:gravity="center"
                 android:text="@string/puntuacion"
                 android:textAlignment="center"
                 android:textColor="#3949AB"
+<<<<<<< HEAD
                 android:textSize="40sp"
+=======
+                android:textSize="60sp"
+>>>>>>> main
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnReiniciar"
+<<<<<<< HEAD
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#43A047"
@@ -135,10 +220,22 @@
                 android:textColor="#000000"
                 android:textSize="22sp"
                 app:cornerRadius="0dp"
+=======
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#43A047"
+                android:includeFontPadding="false"
+                android:padding="0dp"
+                android:text="@string/reinicio"
+                android:textAlignment="center"
+                android:textSize="22sp"
+                app:cornerRadius="5dp"
+>>>>>>> main
                 app:iconPadding="0dp" />
 
         </LinearLayout>
 
+<<<<<<< HEAD
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
@@ -168,5 +265,40 @@
 
         </LinearLayout>
 
+=======
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/dadoEscodigo"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:paddingEnd="20dp"
+            android:text="@string/puntuacionDado"
+            android:textColor="#43A047"
+            android:textSize="96sp" />
+>>>>>>> main
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
