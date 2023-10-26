@@ -3,4 +3,12 @@
     <string name="appName">Dice Shooter</string>
     <string name="usuario">Usuario</string>
     <string name="siguiente">SIGUIENTE</string>
+    <string name="reinicio">REINICIO</string>
+    <string name="tira_dado">TIRA DADO</string>
+    <string name="dado_4_caras">Dado 4 caras</string>
+    <string name="dado_6_caras">Dado 6 caras</string>
+    <string name="dado_8_caras">Dado 8 caras</string>
+    <string name="dadoEscodigo">Dado de 8 caras saca un</string>
+    <string name="puntuacion">123</string>
+    <string name="puntuacionDado">7</string>
 </resources>

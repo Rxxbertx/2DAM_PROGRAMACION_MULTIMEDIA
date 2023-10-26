@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FFFFFF"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:shadowColor="#908F8F"
+        android:shadowDx="-20"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:text="@string/appName"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/dados"
+        android:layout_width="107dp"
+        android:layout_height="125dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dice"
+        tools:ignore="ContentDescription" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewUser"
+        android:layout_width="473dp"
+        android:layout_height="174dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="103dp"
+        android:outlineAmbientShadowColor="#000000"
+        android:outlineSpotShadowColor="#000000"
+        android:rotation="-4"
+        android:rotationX="8"
+        android:rotationY="36"
+        app:cardBackgroundColor="#DA2323"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/dados"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appName">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="154dp"
+            android:background="#00000000"
+            android:clipToPadding="false"
+            android:duplicateParentState="false"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="0dp"
+            android:paddingHorizontal="0dp"
+            android:paddingVertical="0dp">
+
+            <TextView
+                android:id="@+id/user"
+                android:layout_width="193dp"
+                android:layout_height="57dp"
+                android:layout_gravity="center|center_horizontal"
+                android:gravity="center"
+                android:rotation="-4"
+                android:rotationX="8"
+                android:rotationY="36"
+                android:shadowColor="#AB000000"
+                android:shadowDx="-20"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:text="@string/usuario"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/userEdit"
+                android:layout_width="193dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_horizontal"
+                android:autofillHints=""
+                android:focusedByDefault="true"
+                android:inputType="text"
+                android:rotation="-4"
+                android:rotationX="8"
+                android:rotationY="36"
+                android:textAlignment="textStart"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold|italic"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewSiguiente"
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:outlineAmbientShadowColor="#000000"
+        android:outlineSpotShadowColor="#000000"
+        android:rotation="-12"
+        android:rotationX="-20"
+        android:rotationY="-32"
+        android:translationZ="20dp"
+        app:cardBackgroundColor="#000000"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewUser">
+
+        <Button
+            android:id="@+id/btnSiguiente"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#DA2323"
+            android:onClick="comprobarNombre"
+            android:shadowColor="#540E0E0E"
+            android:shadowDx="50"
+            android:shadowDy="2"
+            android:shadowRadius="5"
+            android:text="@string/siguiente"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
