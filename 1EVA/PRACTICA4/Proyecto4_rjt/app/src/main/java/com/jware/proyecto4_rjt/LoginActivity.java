@@ -43,7 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         if (userText.getText().length()<2)
             showErrorDialog("DEBES INTRODUCIR UN NOMBR DE USUARIO QUE CONTEGA AL MENOS 2 CARACTERES");
         else animacionesSalida();
-    } private void showErrorDialog(String message) {
+    }
+    private void showErrorDialog(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.appName)
                 .setMessage(message)
@@ -101,6 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 Intent segundaAct = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(segundaAct);
+                segundaAct.putExtra("nombreUsuario",userText.getText().toString());
                 overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 finish();
 

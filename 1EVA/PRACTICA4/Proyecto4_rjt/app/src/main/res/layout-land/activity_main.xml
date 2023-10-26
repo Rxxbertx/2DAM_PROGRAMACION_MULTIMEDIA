@@ -109,7 +109,7 @@
                 app:iconPadding="0dp" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/puntuacion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"

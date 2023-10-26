@@ -9,7 +9,7 @@
     <string name="dado_6_caras">Dado 6 caras</string>
     <string name="dado_8_caras">Dado 8 caras</string>
     <string name="dadoEscodigo">Dado de 8 caras saca un</string>
-    <string name="puntuacion">123</string>
+    <string name="puntuacion">0</string>
     <string name="puntuacionDado">7</string>
     <string name="resultados">Resultados</string>
     <string name="puntuacionInfo">Usuario ha logrado un total de XX puntos en X tiradas</string>
