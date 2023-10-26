@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="C_puntuacion">puntuacion</string>
+    <string name="C_vecesdado8">vecesDado8</string>
+    <string name="C_vecesdado6">vecesDado6</string>
+    <string name="C_vecesdado4">vecesDado4</string>
+    <string name="C_puntuaciondado8">puntuacionDado8</string>
+    <string name="C_puntuaciondado6">puntuacionDado6</string>
+    <string name="C_puntuaciondado4">puntuacionDado4</string>
+    <string name="C_layoutresultadovisibility">layoutResultadoVisibility</string>
+    <string name="C_infotiradadado">infoTiradaDado</string>
+    <string name="C_infotirada">infoTirada</string>
+    <string name="C_puntuaciontext">puntuacionText</string>
+    <string name="C_vecesDadoTotal">vecesDadoTotal</string>
+    <string name="C_userName">userName</string>
+</resources>

@@ -38,6 +38,19 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+       userText.setText(savedInstanceState.getCharSequence(getString(R.string.C_userName)));
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putCharSequence(getString(R.string.C_userName),userText.getText());
+    }
+
     public void comprobarNombre(View view) {
 
         if (userText.getText().length()<2)
@@ -101,8 +114,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onAnimationEnd(@NonNull Animator animator) {
 
                 Intent segundaAct = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(segundaAct);
-                segundaAct.putExtra("nombreUsuario",userText.getText().toString());
+
+                segundaAct.putExtra(getString(R.string.C_userName),userText.getText().toString());startActivity(segundaAct);
                 overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 finish();
 

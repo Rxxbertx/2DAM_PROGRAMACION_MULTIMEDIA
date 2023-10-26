@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -32,8 +33,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="408dp"
+        android:layout_height="517dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:orientation="horizontal"
@@ -85,7 +86,7 @@
 
         <LinearLayout
             android:layout_width="156dp"
-            android:layout_height="556dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
             android:background="#00FFFFFF"
@@ -117,7 +118,8 @@
                 android:textAlignment="center"
                 android:textColor="#3949AB"
                 android:textSize="60sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
             <Button
                 android:id="@+id/btnReiniciar"
@@ -138,12 +140,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="71dp"
-        android:gravity="center"
+        android:id="@+id/layoutPuntuacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         app:layout_constraintVertical_bias="0.0">
@@ -152,23 +157,32 @@
             android:id="@+id/infoTiradaDado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_gravity="bottom|center"
             android:layout_marginStart="-40dp"
             android:layout_marginEnd="10dp"
-            android:gravity="bottom"
+            android:layout_marginBottom="10dp"
             android:text="@string/dadoEscodigo"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/infoTirada"
-            android:layout_width="51dp"
-            android:layout_height="96dp"
-            android:layout_gravity="top"
-            android:layout_marginTop="-20dp"
-            android:layout_weight="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:includeFontPadding="false"
+            android:padding="0dp"
             android:text="@string/puntuacionDado"
             android:textColor="#43A047"
             android:textSize="96sp" />
 
     </LinearLayout>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/dadosCarga"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C3000000"
+
+        android:src="@drawable/dados_carga"
+        android:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>
