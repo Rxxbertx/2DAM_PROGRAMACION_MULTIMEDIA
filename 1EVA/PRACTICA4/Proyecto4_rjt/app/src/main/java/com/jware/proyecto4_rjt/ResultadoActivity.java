@@ -2,16 +2,29 @@ package com.jware.proyecto4_rjt;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.TextView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class ResultadoActivity extends AppCompatActivity {
 
     private TextView userResult, userResult4, userResult6, userResult8;
     OnBackPressedCallback callback;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,14 +80,33 @@ public class ResultadoActivity extends AppCompatActivity {
 
     }
 
-    public void onClickSiguiente(View view) {
+    public void onClickCompartir(View view) {
 
-        Intent pantallaLogin = new Intent(this, LoginActivity.class);
-        startActivity(pantallaLogin);
-        finish();
+
+        // Captura una captura de pantalla de una vista específica
+        View vw = findViewById(R.id.view);
+        vw.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(vw.getDrawingCache());
+        vw.setDrawingCacheEnabled(false);
+
+        // Configura el intent para compartir la imagen como un Bitmap
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("image/*");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, getImageUri(ResultadoActivity.this, bitmap));
+        startActivity(Intent.createChooser(shareIntent, "Compartir captura de pantalla"));
+
+
+        }
+
+    public Uri getImageUri(Context context, Bitmap bitmap) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, "Captura de pantalla", null);
+        return Uri.parse(path);
+
+
 
     }
-    // Agrega un callback para el botón "Atrás"
 
 
 }
