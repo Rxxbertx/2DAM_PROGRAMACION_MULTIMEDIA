@@ -16,4 +16,5 @@
     <string name="puntuacion4caras">X tiradas con el dado de 4 caras para lograr XX puntos</string>
     <string name="puntuacion6caras">X tiradas con el dado de 6 caras para lograr XX puntos</string>
     <string name="puntuacion8caras">X tiradas con el dado de 8 caras para lograr XX puntos</string>
+    <string name="compartir">Compartir</string>
 </resources>
