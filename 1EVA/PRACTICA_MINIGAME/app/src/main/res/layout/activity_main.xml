@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/principal"
-    android:backgroundTint="#2B2A2A"
+    android:backgroundTint="#4E4E4E"
     android:backgroundTintMode="screen"
     tools:context=".MainActivity">
 
@@ -44,30 +44,33 @@
             app:cardElevation="20dp">
 
             <ImageView
-                android:id="@+id/imageView1"
+                android:id="@+id/avatar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="openCamera"
                 android:scaleType="centerCrop"
                 android:src="@drawable/avatar" />
         </androidx.cardview.widget.CardView>
 
 
-
-    <View
+        <View
             android:id="@+id/divider3"
             android:layout_width="match_parent"
             android:layout_height="18dp" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/editTextNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:autofillHints=""
             android:ems="10"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="Nombre"
-            android:textAlignment="center" />
+            android:text="@string/nombre"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/divider4"
@@ -75,12 +78,13 @@
             android:layout_height="18dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonJugar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="20dp"
+            android:onClick="comprobarDatos"
             android:shadowColor="#000000"
-            android:text="JUGAR"
+            android:text="@string/jugar"
             app:cornerRadius="10dp" />
 
         <View
@@ -89,12 +93,13 @@
             android:layout_height="18dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonPuntuacion"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:width="1dp"
             android:height="1dp"
-            android:text="PUNTUACION"
+            android:onClick="puntuacionClick"
+            android:text="@string/puntuacion"
             app:cornerRadius="10dp" />
 
         <View
@@ -103,12 +108,13 @@
             android:layout_height="18dp" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonSalir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:width="1dp"
             android:height="1dp"
-            android:text="SALIR"
+            android:onClick="salir"
+            android:text="@string/salir"
             app:cornerRadius="10dp" />
     </LinearLayout>
 

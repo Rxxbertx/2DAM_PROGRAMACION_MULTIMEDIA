@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">minigame</string>
+    <string name="jugar">PLAY</string>
+    <string name="puntuacion">HIGHSCORE</string>
+    <string name="salir">EXIT</string>
+    <string name="nombre">Name</string>
+    <string name="contador">5</string>
+    <string name="nivel1">Level 1</string>
+    <string name="objetivo5">Target: 5</string>
+    <string name="tiempoRestante">10</string>
+    <string name="nivel2">Level2</string>
+    <string name="objetivo10">Target: 10</string>
+    <string name="nivel3">Level 3</string>
+    <string name="objetivo20">Target: 20</string>
+    <string name="personaje_ptn">14</string>
+    <string name="volver_a_jugar">Play Again</string>
+    <string name="nombre_puntuacion">Name</string>
+    <string name="tiempo_finalizar">Elapsed Time</string>
+    <string name="reiniciar">RESET</string>
+    <string name="perdiste">You Lose</string>
+    <string name="ganaste">You Win</string>
+    <string name="siguiente">NEXT</string>
+    <string name="listo">READY</string>
+</resources>

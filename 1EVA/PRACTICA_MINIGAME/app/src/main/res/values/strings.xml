@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">minigame</string>
+    <string name="jugar">JUGAR</string>
+    <string name="puntuacion">PUNTUACION</string>
+    <string name="salir">SALIR</string>
+    <string name="nombre">Nombre</string>
+    <string name="contador">5</string>
+    <string name="nivel1">Nivel 1</string>
+    <string name="objetivo5">Objetivo: 5</string>
+    <string name="tiempoRestante">10</string>
+    <string name="nivel2">Nivel 2</string>
+    <string name="objetivo10">Objetivo: 10</string>
+    <string name="nivel3">Nivel 3</string>
+    <string name="objetivo20">Objetivo: 20</string>
+    <string name="puntuacion_personaje1"><![CDATA[DRAG & DROP]]></string>
+    <string name="personaje_ptn">14</string>
+    <string name="volver_a_jugar">Volver a Jugar</string>
+    <string name="avatar">Avatar</string>
+    <string name="nombre_puntuacion">Nombre</string>
+    <string name="tiempo_finalizar">Tiempo Finalizar</string>
+    <string name="_14">14</string>
+    <string name="reiniciar">REINICIAR</string>
+    <string name="perdiste">Perdiste</string>
+    <string name="ganaste">Ganaste</string>
+    <string name="siguiente">SIGUIENTE</string>
+    <string name="listo">LISTO</string>
 </resources>
