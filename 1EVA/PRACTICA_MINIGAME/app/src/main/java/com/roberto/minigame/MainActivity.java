@@ -1,11 +1,5 @@
 package com.roberto.minigame;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,9 +11,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.roberto.minigame.appdata.GameManager;
 import com.roberto.minigame.appdata.ModeloUsuario;
 import com.roberto.minigame.appdata.Usuario;
+import com.roberto.minigame.sounds.Sonidos;
 
 import java.io.ByteArrayOutputStream;
 import java.util.regex.Matcher;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher camerALauncher;
     private ImageView imGCamara;
 
-    private String regex = "^[a-zA-Z]{3,}$";
+    private final String regex = "^[a-zA-Z]{3,}$";
     Pattern pattern = Pattern.compile(regex);
 
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Sonidos.playMusic();
         cargarContenido();
 
     }
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Compila la expresión regular en un objeto Pattern.
 
+        GameManager.reiniciarJuego();
 
         modeloUser=new ModeloUsuario();
         imGCamara = findViewById(R.id.avatar);
@@ -120,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
         camerALauncher.launch(null);
 
-    };
+    }
 
     public void comprobarDatos(View view) {
 
@@ -136,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        modeloUser.addUsuario(new Usuario(imGCamara,"pepe", 10));
+        modeloUser.addUsuario(new Usuario(imGCamara,"pepe", 30));
 
         Intent intent = new Intent(this, NivelUnoActivity.class);
         startActivity(intent);
@@ -159,5 +162,16 @@ public class MainActivity extends AppCompatActivity {
     public void salir(View view) {
 
         finish();
+    }
+
+    public void onResume() {
+        super.onResume();
+        Sonidos.playMusic();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Sonidos.pauseMusic();
     }
 }

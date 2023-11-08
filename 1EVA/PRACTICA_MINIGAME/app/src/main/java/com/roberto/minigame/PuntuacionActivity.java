@@ -1,9 +1,5 @@
 package com.roberto.minigame;
 
-import androidx.activity.OnBackPressedCallback;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -13,17 +9,20 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.roberto.minigame.appdata.ModeloUsuario;
 import com.roberto.minigame.appdata.Usuario;
+import com.roberto.minigame.sounds.Sonidos;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 public class PuntuacionActivity extends AppCompatActivity {
 
-    private ModeloUsuario modeloUsuario = new ModeloUsuario();
-    private ArrayList<Usuario> highScores=  modeloUsuario.getHighScores();
+    private final ModeloUsuario modeloUsuario = new ModeloUsuario();
+    private final ArrayList<Usuario> highScores=  modeloUsuario.getHighScores();
 
     private TableLayout miTabla;
 
@@ -39,6 +38,21 @@ public class PuntuacionActivity extends AppCompatActivity {
 
 
         controlBtnSalir();
+
+    }
+
+    protected void onPause() {
+        super.onPause();
+
+        Sonidos.pauseMusic();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Sonidos.playMusic();
 
     }
 
@@ -63,6 +77,9 @@ public class PuntuacionActivity extends AppCompatActivity {
 
 
     private void cargarContenido() {
+
+
+        Sonidos.playMusic();
 
         miTabla=findViewById(R.id.tableLayout);
 

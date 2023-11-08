@@ -61,7 +61,7 @@ public class Usuario  implements Comparable<Usuario> {
         // Primero, compara por puntuación.
         int comparacionPorPuntuacion;
         try {
-            comparacionPorPuntuacion = Integer.compare(this.puntuacion, other.puntuacion);
+            comparacionPorPuntuacion = Integer.compare(other.puntuacion,this.puntuacion);
         }catch (Exception e){
             comparacionPorPuntuacion=0;
         }

@@ -7,6 +7,7 @@
         android:required="true" />
 
     <application
+        android:name=".MinigameApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Minigame"
         tools:targetApi="31">
+        <activity
+            android:name=".NivelTresActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NivelDosActivity"
+            android:exported="false" />
         <activity
             android:name=".NivelUnoActivity"
             android:exported="false" />
