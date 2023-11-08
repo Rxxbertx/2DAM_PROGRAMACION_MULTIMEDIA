@@ -12,6 +12,10 @@ public class GameManager {
     public static int Objetivo = 5;
     public static int[] PuntuajeNiveles = new int[3];
     public static Usuario usuarioActual;
+
+    public static long tiempoRestanteNivel1 = 10000;
+    public static long tiempoRestanteNivel2 = 15000;
+    public static long tiempoRestanteNivel3 = 30000;
     public static Estado estado = Estado.NO_INICIADO;
 
     public static int getPuntuacionTotal() {
@@ -49,7 +53,7 @@ public class GameManager {
     public static void reiniciarJuego() {
         Nivel = 1;
         PuntuajeNiveles = new int[3];
-        Objetivo = (Nivel == 1) ? 5 : (Nivel == 2) ? 10 : 20;
+        Objetivo = 5;
         estado = Estado.NO_INICIADO;
     }
 

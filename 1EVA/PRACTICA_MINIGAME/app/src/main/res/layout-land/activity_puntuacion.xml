@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/principal"
+    android:background="@drawable/final_landscape"
     android:backgroundTint="#4E4E4E"
     android:backgroundTintMode="screen"
     tools:context=".MainActivity">
@@ -22,7 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
-
 
 
     <TableLayout
@@ -81,8 +80,8 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/volver_a_jugar"
         android:onClick="ventanaPrincipal"
+        android:text="@string/volver_a_jugar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tableLayout"
         app:layout_constraintStart_toStartOf="parent"

@@ -7,21 +7,11 @@ import com.roberto.minigame.R;
 
 public class Sonidos {
 
-
-    public static MediaPlayer mediaMusic;
     public static MediaPlayer mediaPop;
     public static MediaPlayer mediaWin;
     public static MediaPlayer mediaLose;
 
 
-    public static void initMusic(Context context) {
-
-        if (mediaMusic == null) {
-            mediaMusic = MediaPlayer.create(context, R.raw.music);
-
-
-        }
-    }
 
     public static void initPopWinLose(Context context) {
 
@@ -45,15 +35,6 @@ public class Sonidos {
         }
     }
 
-    public static void playMusic(){
-
-        mediaMusic.setLooping(true);
-        mediaMusic.setVolume(0.5f, 0.5f);
-
-        if (mediaMusic != null) {
-            mediaMusic.start();
-        }
-    }
 
     public static void playWin(){
 
@@ -90,21 +71,6 @@ public class Sonidos {
         }
     }
 
-    public static void releaseMusic(){
-
-        if (mediaMusic != null) {
-            mediaMusic.release();
-            mediaMusic = null;
-        }
-    }
-
-
-    public static void pauseMusic() {
-        if (mediaMusic != null) {
-            mediaMusic.pause();
-
-        }
-    }
 
 
 }

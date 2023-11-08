@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -20,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.roberto.minigame.appdata.GameManager;
 import com.roberto.minigame.appdata.ModeloUsuario;
 import com.roberto.minigame.appdata.Usuario;
-import com.roberto.minigame.sounds.Sonidos;
 
 import java.io.ByteArrayOutputStream;
 import java.util.regex.Matcher;
@@ -37,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ModeloUsuario modeloUser;
 
-    private Usuario usuario;
-
     private TextView useRName;
 
 
@@ -47,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Sonidos.playMusic();
         cargarContenido();
 
     }
@@ -109,12 +103,9 @@ public class MainActivity extends AppCompatActivity {
         imGCamara = findViewById(R.id.avatar);
 
         useRName= findViewById(R.id.editTextNombre);
-        camerALauncher = registerForActivityResult(new ActivityResultContracts.TakePicturePreview(), new ActivityResultCallback<Bitmap>() {
-            @Override
-            public void onActivityResult(Bitmap result) {
-                if (result != null) {
-                    imGCamara.setImageBitmap(result);
-                }
+        camerALauncher = registerForActivityResult(new ActivityResultContracts.TakePicturePreview(), result -> {
+            if (result != null) {
+                imGCamara.setImageBitmap(result);
             }
         });
     }
@@ -131,11 +122,11 @@ public class MainActivity extends AppCompatActivity {
         Matcher matcher = pattern.matcher(String.valueOf(useRName.getText()));
 
         if (matcher.find()){
-            usuario = new Usuario(imGCamara, String.valueOf(useRName.getText()),null);
+            Usuario usuario = new Usuario(imGCamara, String.valueOf(useRName.getText()), null);
             GameManager.usuarioActual = usuario;
             modeloUser.addUsuario(usuario);
         }else{
-            Toast.makeText(this,"INTRODUCE UN USUARIO VALIDO (sin numeros y mas de 3 letras)",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,getString(R.string.errorInicio),Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -162,16 +153,5 @@ public class MainActivity extends AppCompatActivity {
     public void salir(View view) {
 
         finish();
-    }
-
-    public void onResume() {
-        super.onResume();
-        Sonidos.playMusic();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Sonidos.pauseMusic();
     }
 }

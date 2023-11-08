@@ -43,8 +43,6 @@ public class NivelDosActivity extends AppCompatActivity implements View.OnTouchL
     @Override
     protected void onPause() {
         super.onPause();
-
-        Sonidos.pauseMusic();
         if (countDownTimer != null)
             countDownTimer.cancel();
     }
@@ -52,8 +50,6 @@ public class NivelDosActivity extends AppCompatActivity implements View.OnTouchL
     @Override
     protected void onResume() {
         super.onResume();
-
-        Sonidos.playMusic();
         if (GameManager.estado == GameManager.Estado.INICIADO) {
             iniciarTemporizador();
         }
@@ -62,7 +58,6 @@ public class NivelDosActivity extends AppCompatActivity implements View.OnTouchL
     @SuppressLint("ClickableViewAccessibility")
     public void cargarContenido() {
 
-        Sonidos.playMusic();
         figuraAleatoria = findViewById(R.id.figura);
         figuraAleatoriaNombre = GameManager.figuraAleatoria();
         contador = findViewById(R.id.contador);
@@ -94,7 +89,7 @@ public class NivelDosActivity extends AppCompatActivity implements View.OnTouchL
         rombo.setOnTouchListener(this);
         caja.setOnDragListener(this);
 
-        tiempoRestante = 15000;
+        tiempoRestante = GameManager.tiempoRestanteNivel2;
         comprobarEstado();
     }
 
@@ -166,9 +161,14 @@ public class NivelDosActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     public void reinciarNivel(View view) {
+
         GameManager.reiniciarNivel();
-        finish();
-        startActivity(getIntent());
+        vistaFinal.setVisibility(View.GONE);
+        vistaPerdido.setVisibility(View.GONE);
+        contador.setText(String.valueOf(GameManager.Objetivo));
+        tiempoRestante = GameManager.tiempoRestanteNivel2;
+        comprobarEstado();
+
     }
 
     public void siguienteNivel(View view) {
@@ -215,21 +215,17 @@ public class NivelDosActivity extends AppCompatActivity implements View.OnTouchL
         animacion.postDelayed(() -> animacion.setVisibility(View.GONE), 500);
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
-        }
-
-    }
 
     @Override
     public boolean onDrag(View view, DragEvent event) {
         int action = event.getAction();
         if (action == DragEvent.ACTION_DROP) {
+            // Obtiene el texto de la figura arrastrada desde los datos del evento de arrastre.
             String figuraArrastrada = event.getClipData().getItemAt(0).getText().toString();
+
+            // Comprueba si la figura arrastrada es la misma que la figura aleatoria.
             if (figuraAleatoriaNombre.equals(figuraArrastrada)) {
+                // Resta un objetivo y realiza una animación si la figura es correcta.
                 restarObjetivo();
                 realizarAnimacion();
                 generarFiguraAleatoria();
@@ -239,12 +235,16 @@ public class NivelDosActivity extends AppCompatActivity implements View.OnTouchL
         return true;
     }
 
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouch(View view, MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            // Crea un objeto ClipData con el texto de la figura que se toca.
             ClipData data = ClipData.newPlainText("figura", view.getTag().toString());
+            // Crea un objeto DragShadowBuilder para representar la vista durante el arrastre.
             View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+            // Inicia la operación de arrastre y soltar con los datos y el constructor de sombras.
             view.startDragAndDrop(data, shadowBuilder, view, 0);
             return true;
         } else {

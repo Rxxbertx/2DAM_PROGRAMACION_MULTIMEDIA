@@ -6,8 +6,8 @@ import java.util.Objects;
 
 public class Usuario  implements Comparable<Usuario> {
 
-    private ImageView avatar;
-    private String nombre;
+    private final ImageView avatar;
+    private final String nombre;
 
     private Integer puntuacion;
 
@@ -21,16 +21,8 @@ public class Usuario  implements Comparable<Usuario> {
         return avatar;
     }
 
-    public void setAvatar(ImageView avatar) {
-        this.avatar = avatar;
-    }
-
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public Integer getPuntuacion() {

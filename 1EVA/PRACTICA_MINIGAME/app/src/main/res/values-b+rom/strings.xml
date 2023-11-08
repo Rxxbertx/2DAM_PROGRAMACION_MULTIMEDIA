@@ -15,10 +15,13 @@
     <string name="objetivo20">Ținta: 20</string>
     <string name="personaje_ptn">14</string>
     <string name="volver_a_jugar">Joaca Din Nou</string>
+    <string name="avatar">Avatar</string>
     <string name="nombre_puntuacion">Nume</string>
     <string name="tiempo_finalizar">Timp Trecut</string>
+    <string name="reiniciar">DIN NOU</string>
     <string name="perdiste">Ai Pierdut</string>
     <string name="ganaste">Ai Castigat</string>
     <string name="siguiente">URMATOR</string>
     <string name="listo">PREGATIT</string>
+    <string name="errorInicio">MINIM 3 LITERE (FARA NUMERE)</string>
 </resources>

@@ -17,7 +17,7 @@ public class ModeloUsuario {
 
     public ArrayList<Usuario> getHighScores(){
 
-        return new ArrayList<Usuario>(highScores);
+        return new ArrayList<>(highScores);
 
     }
 }

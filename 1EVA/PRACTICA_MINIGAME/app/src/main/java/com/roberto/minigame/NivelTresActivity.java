@@ -50,7 +50,6 @@ public class NivelTresActivity extends AppCompatActivity implements View.OnTouch
     protected void onPause() {
         super.onPause();
 
-        Sonidos.pauseMusic();
         if (countDownTimer != null)
             countDownTimer.cancel();
     }
@@ -59,7 +58,6 @@ public class NivelTresActivity extends AppCompatActivity implements View.OnTouch
     protected void onResume() {
         super.onResume();
 
-        Sonidos.playMusic();
         if (GameManager.estado == GameManager.Estado.INICIADO) {
             iniciarTemporizador();
         }
@@ -67,8 +65,6 @@ public class NivelTresActivity extends AppCompatActivity implements View.OnTouch
 
     @SuppressLint("ClickableViewAccessibility")
     public void cargarContenido() {
-        // Inicializa los sonidos
-        Sonidos.playMusic();
 
         figuraAleatoria = findViewById(R.id.figura);
         figuraAleatoriaNombre = GameManager.figuraAleatoria();
@@ -113,7 +109,7 @@ public class NivelTresActivity extends AppCompatActivity implements View.OnTouch
         caja.setOnDragListener(this);
         caja1.setOnDragListener(this);
 
-        tiempoRestante = 30000;
+        tiempoRestante = GameManager.tiempoRestanteNivel3;
         comprobarEstado();
     }
 
@@ -215,9 +211,14 @@ public class NivelTresActivity extends AppCompatActivity implements View.OnTouch
     }
 
     public void reinciarNivel(View view) {
+
         GameManager.reiniciarNivel();
-        finish();
-        startActivity(getIntent());
+        vistaFinal.setVisibility(View.GONE);
+        vistaPerdido.setVisibility(View.GONE);
+        contador.setText(String.valueOf(GameManager.Objetivo));
+        tiempoRestante = GameManager.tiempoRestanteNivel3;
+        comprobarEstado();
+
     }
 
     public void siguienteNivel(View view) {

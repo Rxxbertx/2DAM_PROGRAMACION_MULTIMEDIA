@@ -15,7 +15,6 @@ import androidx.cardview.widget.CardView;
 
 import com.roberto.minigame.appdata.ModeloUsuario;
 import com.roberto.minigame.appdata.Usuario;
-import com.roberto.minigame.sounds.Sonidos;
 
 import java.util.ArrayList;
 
@@ -24,10 +23,6 @@ public class PuntuacionActivity extends AppCompatActivity {
     private final ModeloUsuario modeloUsuario = new ModeloUsuario();
     private final ArrayList<Usuario> highScores=  modeloUsuario.getHighScores();
 
-    private TableLayout miTabla;
-
-    private OnBackPressedCallback callback;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,29 +30,15 @@ public class PuntuacionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_puntuacion);
 
         cargarContenido();
-
-
         controlBtnSalir();
 
     }
 
-    protected void onPause() {
-        super.onPause();
-
-        Sonidos.pauseMusic();
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Sonidos.playMusic();
-
-    }
 
     private void controlBtnSalir() {
-        callback = new OnBackPressedCallback(true) {
+        // Agrega aquí la lógica para redirigir al usuario a la pantalla deseada
+        // Opcional, para cerrar la actividad actual
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 // Agrega aquí la lógica para redirigir al usuario a la pantalla deseada
@@ -78,10 +59,7 @@ public class PuntuacionActivity extends AppCompatActivity {
 
     private void cargarContenido() {
 
-
-        Sonidos.playMusic();
-
-        miTabla=findViewById(R.id.tableLayout);
+        TableLayout miTabla = findViewById(R.id.tableLayout);
 
         modeloUsuario.getHighScores();
 
