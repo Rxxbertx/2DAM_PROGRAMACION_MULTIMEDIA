@@ -10,9 +10,10 @@ public class MinigameApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         Intent intent = new Intent(this, AudioService.class);
         startService(intent);
+
+
 
     }
 

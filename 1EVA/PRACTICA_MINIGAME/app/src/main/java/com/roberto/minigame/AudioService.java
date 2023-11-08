@@ -3,9 +3,12 @@ package com.roberto.minigame;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.IBinder;
 
 import androidx.annotation.Nullable;
+
+import java.io.IOException;
 
 public class AudioService extends Service {
 
@@ -19,13 +22,18 @@ public class AudioService extends Service {
 
         if (mediaPlayer == null) {
             mediaPlayer = new MediaPlayer();
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.music);
+            try {
+                mediaPlayer.setDataSource(this, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.music));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             mediaPlayer.setLooping(true);
             mediaPlayer.setVolume(0.5f, 0.5f);
-            mediaPlayer.prepareAsync();
-            mediaPlayer.setOnPreparedListener(mp -> mediaPlayer.start());
-        }
 
+            mediaPlayer.setOnPreparedListener(mp -> mediaPlayer.start());
+
+            mediaPlayer.prepareAsync(); // Ahora llamamos a prepareAsync después de configurar el data source
+        }
     }
 
     @Override
