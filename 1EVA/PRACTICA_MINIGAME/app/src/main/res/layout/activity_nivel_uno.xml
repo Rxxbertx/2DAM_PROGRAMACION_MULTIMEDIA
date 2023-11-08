@@ -64,8 +64,7 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/box"
         app:layout_constraintTop_toTopOf="@+id/box"
-        app:layout_constraintVertical_bias="0.427"
-        app:srcCompat="@drawable/circle" />
+        app:layout_constraintVertical_bias="0.427" />
 
     <TextView
         android:id="@+id/contador"
@@ -75,7 +74,6 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="15"
-        android:text="@string/contador"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
         android:textStyle="bold"
@@ -96,10 +94,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <ImageView
-            android:id="@+id/circulo"
+            android:id="@+id/corazon"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1"
+            android:tag="circulo"
             app:srcCompat="@drawable/circle" />
 
         <View
@@ -112,6 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1"
+            android:tag="triangulo"
             app:srcCompat="@drawable/triangle" />
 
         <View
@@ -124,6 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1"
+            android:tag="cuadrado"
             app:srcCompat="@drawable/rectangle" />
     </LinearLayout>
 
@@ -132,7 +133,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/comic_neue_light"
-        android:text="@string/tiempoRestante"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
@@ -145,6 +145,7 @@
         android:id="@+id/popImg"
         android:layout_width="250dp"
         android:layout_height="244dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/contador"
         app:layout_constraintEnd_toEndOf="@+id/box"
         app:layout_constraintStart_toStartOf="@+id/box"

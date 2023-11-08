@@ -19,7 +19,7 @@ import com.roberto.minigame.appdata.GameManager;
 import com.roberto.minigame.interfaces.Nivel;
 import com.roberto.minigame.sounds.Sonidos;
 
-public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchListener, View.OnDragListener, Nivel {
+public class NivelDosActivity extends AppCompatActivity implements View.OnTouchListener, View.OnDragListener, Nivel {
 
     private CardView vistaInicio;
     private CardView vistaFinal;
@@ -29,22 +29,23 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
     private ImageView figuraAleatoria;
     private TextView contador;
     private long tiempoRestante;
+
     private CountDownTimer countDownTimer;
     private ImageView animacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nivel_uno);
+        setContentView(R.layout.activity_nivel_dos);
         cargarContenido();
     }
 
     @Override
     protected void onPause() {
-            super.onPause();
+        super.onPause();
 
-            Sonidos.pauseMusic();
-            if (countDownTimer != null)
+        Sonidos.pauseMusic();
+        if (countDownTimer != null)
             countDownTimer.cancel();
     }
 
@@ -60,10 +61,8 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
 
     @SuppressLint("ClickableViewAccessibility")
     public void cargarContenido() {
-        // Inicializa los sonidos
-        Sonidos.initPopWinLose(this);
-        Sonidos.playMusic();
 
+        Sonidos.playMusic();
         figuraAleatoria = findViewById(R.id.figura);
         figuraAleatoriaNombre = GameManager.figuraAleatoria();
         contador = findViewById(R.id.contador);
@@ -71,9 +70,13 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
 
         // Configura los elementos de la vista
         ImageView caja = findViewById(R.id.box);
-        ImageView circulo = findViewById(R.id.corazon);
+        ImageView circulo = findViewById(R.id.circulo);
         ImageView triangulo = findViewById(R.id.triangulo);
         ImageView cuadrado = findViewById(R.id.cuadrado);
+        ImageView estrella = findViewById(R.id.estrella);
+        ImageView corazon = findViewById(R.id.corazon);
+        ImageView rombo = findViewById(R.id.rombo);
+
         contador.setText(String.valueOf(GameManager.Objetivo));
 
         vistaInicio = findViewById(R.id.viewInicio);
@@ -86,9 +89,12 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
         circulo.setOnTouchListener(this);
         triangulo.setOnTouchListener(this);
         cuadrado.setOnTouchListener(this);
+        estrella.setOnTouchListener(this);
+        corazon.setOnTouchListener(this);
+        rombo.setOnTouchListener(this);
         caja.setOnDragListener(this);
 
-        tiempoRestante = 10000;
+        tiempoRestante = 15000;
         comprobarEstado();
     }
 
@@ -167,9 +173,9 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
 
     public void siguienteNivel(View view) {
         GameManager.aumentarNivel();
-        Intent nivel2 = new Intent(this, NivelDosActivity.class);
-        finish();startActivity(nivel2);
-
+        Intent nivel3 = new Intent(this, NivelTresActivity.class);
+        startActivity(nivel3);
+        finish();
     }
 
     public void comenzarNivel(View view) {
@@ -215,7 +221,7 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
         if (countDownTimer != null) {
             countDownTimer.cancel();
         }
-        //Sonidos.releasePopWinLose();
+
     }
 
     @Override

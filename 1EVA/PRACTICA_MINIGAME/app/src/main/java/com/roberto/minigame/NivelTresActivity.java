@@ -16,35 +16,42 @@ import androidx.cardview.widget.CardView;
 
 import com.roberto.minigame.animations.AnimacionPopUp;
 import com.roberto.minigame.appdata.GameManager;
+import com.roberto.minigame.appdata.Usuario;
 import com.roberto.minigame.interfaces.Nivel;
 import com.roberto.minigame.sounds.Sonidos;
 
-public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchListener, View.OnDragListener, Nivel {
+public class NivelTresActivity extends AppCompatActivity implements View.OnTouchListener, View.OnDragListener, Nivel {
 
     private CardView vistaInicio;
     private CardView vistaFinal;
     private CardView vistaPerdido;
     private TextView txtTiempo;
     private String figuraAleatoriaNombre;
+    private String figuraAleatoriaNombre1;
+
     private ImageView figuraAleatoria;
+    private ImageView figuraAleatoria1;
+
     private TextView contador;
+    private TextView contador1;
     private long tiempoRestante;
+
     private CountDownTimer countDownTimer;
     private ImageView animacion;
+    private ImageView animacion1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nivel_uno);
+        setContentView(R.layout.activity_nivel_tres);
         cargarContenido();
     }
-
     @Override
     protected void onPause() {
-            super.onPause();
+        super.onPause();
 
-            Sonidos.pauseMusic();
-            if (countDownTimer != null)
+        Sonidos.pauseMusic();
+        if (countDownTimer != null)
             countDownTimer.cancel();
     }
 
@@ -61,7 +68,6 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
     @SuppressLint("ClickableViewAccessibility")
     public void cargarContenido() {
         // Inicializa los sonidos
-        Sonidos.initPopWinLose(this);
         Sonidos.playMusic();
 
         figuraAleatoria = findViewById(R.id.figura);
@@ -69,44 +75,77 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
         contador = findViewById(R.id.contador);
         figuraAleatoria.setImageDrawable(GameManager.getFiguraAleatoria(this, figuraAleatoriaNombre));
 
+        contador1 = findViewById(R.id.contador1);
+        figuraAleatoria1 = findViewById(R.id.figura1);
+        figuraAleatoriaNombre1 = GameManager.figuraAleatoria();
+        figuraAleatoria1.setImageDrawable(GameManager.getFiguraAleatoria(this, figuraAleatoriaNombre1));
+
+
+
         // Configura los elementos de la vista
         ImageView caja = findViewById(R.id.box);
-        ImageView circulo = findViewById(R.id.corazon);
+        ImageView caja1 = findViewById(R.id.box1);
+        ImageView circulo = findViewById(R.id.circulo);
         ImageView triangulo = findViewById(R.id.triangulo);
         ImageView cuadrado = findViewById(R.id.cuadrado);
-        contador.setText(String.valueOf(GameManager.Objetivo));
+        ImageView estrella = findViewById(R.id.estrella);
+        ImageView corazon = findViewById(R.id.corazon);
+        ImageView rombo = findViewById(R.id.rombo);
+
+        contador.setText(String.valueOf(GameManager.Objetivo/2));
+        contador1.setText(String.valueOf(GameManager.Objetivo/2));
 
         vistaInicio = findViewById(R.id.viewInicio);
         vistaFinal = findViewById(R.id.viewGanar);
         vistaPerdido = findViewById(R.id.viewPerder);
         txtTiempo = findViewById(R.id.textViewTiempo);
+
         animacion = findViewById(R.id.popImg);
+        animacion1 = findViewById(R.id.popImg1);
 
         // Configura los listeners de arrastre y eventos táctiles
         circulo.setOnTouchListener(this);
         triangulo.setOnTouchListener(this);
         cuadrado.setOnTouchListener(this);
+        estrella.setOnTouchListener(this);
+        corazon.setOnTouchListener(this);
+        rombo.setOnTouchListener(this);
         caja.setOnDragListener(this);
+        caja1.setOnDragListener(this);
 
-        tiempoRestante = 10000;
+        tiempoRestante = 30000;
         comprobarEstado();
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+
         outState.putLong("tiempoRestante", tiempoRestante);
+
         outState.putString("figuraAleatoria", figuraAleatoriaNombre);
+        outState.putString("figuraAleatoria1", figuraAleatoriaNombre1);
+
+        outState.putString("contador", contador.getText().toString());
+        outState.putString("contador1", contador1.getText().toString());
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+
         tiempoRestante = savedInstanceState.getLong("tiempoRestante");
         txtTiempo.setText(String.valueOf(tiempoRestante / 1000));
+
         figuraAleatoriaNombre = savedInstanceState.getString("figuraAleatoria");
         figuraAleatoria.setImageDrawable(GameManager.getFiguraAleatoria(this, figuraAleatoriaNombre != null ? figuraAleatoriaNombre : "circulo"));
-        contador.setText(String.valueOf(GameManager.Objetivo));
+
+        figuraAleatoriaNombre1 = savedInstanceState.getString("figuraAleatoria1");
+        figuraAleatoria1.setImageDrawable(GameManager.getFiguraAleatoria(this, figuraAleatoriaNombre1 != null ? figuraAleatoriaNombre1 : "circulo"));
+
+        contador.setText(savedInstanceState.getString("contador"));
+        contador1.setText(savedInstanceState.getString("contador1"));
+
         comprobarEstado();
     }
 
@@ -125,9 +164,16 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
         }
     }
 
-    public void generarFiguraAleatoria() {
-        figuraAleatoriaNombre = GameManager.figuraAleatoria();
-        figuraAleatoria.setImageDrawable(GameManager.getFiguraAleatoria(this, figuraAleatoriaNombre));
+    public void generarFiguraAleatoria(int i) {
+
+        if (i == 0) {
+            figuraAleatoriaNombre = GameManager.figuraAleatoria();
+            figuraAleatoria.setImageDrawable(GameManager.getFiguraAleatoria(this, figuraAleatoriaNombre));
+        } else {
+            figuraAleatoriaNombre1 = GameManager.figuraAleatoria();
+            figuraAleatoria1.setImageDrawable(GameManager.getFiguraAleatoria(this, figuraAleatoriaNombre1));
+        }
+
     }
 
     private void actualizarTextViewTiempo() {
@@ -135,10 +181,19 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
         txtTiempo.setText(String.valueOf(segundos));
     }
 
-    public void restarObjetivo() {
+    // Restar objetivo
+    public void restarObjetivo(TextView contador) {
+
+        int objetivoActual = Integer.parseInt(contador.getText().toString());
+
+        if (objetivoActual == 0) {
+            return;
+        }
+
+        objetivoActual--;
+        contador.setText(String.valueOf(objetivoActual));
         GameManager.Objetivo--;
-        contador.setText(String.valueOf(GameManager.Objetivo));
-        comprobarFinal();
+        comprobarFinal(); // Comprobar si se ha alcanzado el objetivo
     }
 
     public void comprobarFinal() {
@@ -166,10 +221,14 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     public void siguienteNivel(View view) {
-        GameManager.aumentarNivel();
-        Intent nivel2 = new Intent(this, NivelDosActivity.class);
-        finish();startActivity(nivel2);
 
+
+        Usuario usuario = GameManager.usuarioActual;
+        usuario.setPuntuacion(GameManager.getPuntuacionTotal());
+
+        Intent puntuacion = new Intent(this, PuntuacionActivity.class);
+        startActivity(puntuacion);
+        finish();
     }
 
     public void comenzarNivel(View view) {
@@ -202,7 +261,8 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
         }.start();
     }
 
-    private void realizarAnimacion() {
+    // Animación
+    public void realizarAnimacion(ImageView animacion) {
         Sonidos.playPoP();
         animacion.setVisibility(View.VISIBLE);
         AnimacionPopUp.animarAparicion(animacion, 400);
@@ -215,18 +275,36 @@ public class NivelUnoActivity extends AppCompatActivity implements View.OnTouchL
         if (countDownTimer != null) {
             countDownTimer.cancel();
         }
-        //Sonidos.releasePopWinLose();
+
     }
 
     @Override
     public boolean onDrag(View view, DragEvent event) {
         int action = event.getAction();
         if (action == DragEvent.ACTION_DROP) {
+
             String figuraArrastrada = event.getClipData().getItemAt(0).getText().toString();
-            if (figuraAleatoriaNombre.equals(figuraArrastrada)) {
-                restarObjetivo();
-                realizarAnimacion();
-                generarFiguraAleatoria();
+
+            if (view.getId() == R.id.box) {
+                if (figuraAleatoriaNombre.equals(figuraArrastrada)) {
+                    if (!contador.getText().toString().equals("0")) {
+                    restarObjetivo(contador);
+                    realizarAnimacion(animacion);
+
+                        generarFiguraAleatoria(0);
+                    }
+
+                }
+            } else if (view.getId() == R.id.box1) {
+                if (figuraAleatoriaNombre1.equals(figuraArrastrada)) {
+
+                    if (!contador1.getText().toString().equals("0")) {
+                    restarObjetivo(contador1);
+                    realizarAnimacion(animacion1);
+
+                        generarFiguraAleatoria(1);
+                    }
+                }
             }
             return true;
         }
