@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Minigame"
         tools:targetApi="31">
+
+        <service android:name=".AudioService"
+            android:exported="true"
+            android:enabled="true" />
+
+
         <activity
             android:name=".NivelTresActivity"
             android:exported="false" />

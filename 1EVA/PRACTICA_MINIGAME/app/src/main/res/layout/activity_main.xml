@@ -66,9 +66,9 @@
             android:layout_gravity="center"
             android:autofillHints=""
             android:ems="10"
+            android:hint="@string/nombre"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="@string/nombre"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textStyle="bold" />

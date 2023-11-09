@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         cargarContenido();
 
+
     }
 
 
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             GameManager.usuarioActual = usuario;
             modeloUser.addUsuario(usuario);
         }else{
-            Toast.makeText(this,getString(R.string.errorInicio),Toast.LENGTH_LONG).show();
+            Toast.makeText(this,R.string.errorInicio,Toast.LENGTH_LONG).show();
             return;
         }
 
