@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name" translatable="false">Examen1Ev1_RJT</string>
+    <string name="convertir">CONVERTIR</string>
+    <string name="importe">Importe</string>
+    <string name="moneda_destino">Moneda destino</string>
+    <string name="moneda_origen">Moneda origen</string>
+    <string name="monedas" translatable="false">€ / $ / ₿</string>
+    <string name="currency_converter" translatable="false">Currency Converter</string>
+</resources>

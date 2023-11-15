@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="convertir">CONVERT</string>
+    <string name="moneda_destino">From currency</string>
+    <string name="moneda_origen">To currency</string>
+</resources>
