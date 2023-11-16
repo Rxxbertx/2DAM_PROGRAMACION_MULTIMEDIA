@@ -7,9 +7,9 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
@@ -26,12 +26,11 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/monedaSeleccionada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="@string/monedas"
             android:textSize="20sp" />
 
         <Button
@@ -86,6 +85,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
@@ -146,7 +146,26 @@
             </RadioGroup>
         </LinearLayout>
 
+
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/enlaceMoneda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="#FDD835"
+        android:onClick="navegar"
+        android:text="@string/pulsa_aqui_para_ver_la_cotizaci_n_del_bitcoin"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonFinalizar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -212,5 +231,21 @@
             </RadioGroup>
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonFinalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F4511E"
+        android:onClick="finalizarSesion"
+        android:text="@string/finalizar_sesion"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/enlaceMoneda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/enlaceMoneda"
+        app:layout_constraintTop_toTopOf="@+id/enlaceMoneda" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

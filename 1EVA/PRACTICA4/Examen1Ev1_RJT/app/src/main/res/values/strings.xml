@@ -6,4 +6,10 @@
     <string name="moneda_origen">Moneda origen</string>
     <string name="monedas" translatable="false">€ / $ / ₿</string>
     <string name="currency_converter" translatable="false">Currency Converter</string>
+    <string name="conversor_de_monedas">CONVERSOR DE MONEDAS</string>
+    <string name="modo_avanzado">Modo avanzado</string>
+    <string name="modo_normal">Modo normal</string>
+    <string name="finalizar_sesion">FINALIZAR SESION</string>
+    <string name="pulsa_aqui_para_ver_la_cotizaci_n_del_bitcoin">Pulsa aqui para ver la cotización del bitcoin</string>
+    <string name="historial_conversiones">HISTORIAL CONVERSIONES</string>
 </resources>
