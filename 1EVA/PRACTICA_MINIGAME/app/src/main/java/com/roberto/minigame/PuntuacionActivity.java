@@ -51,12 +51,6 @@ public class PuntuacionActivity extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(callback);
     }
 
-
-
-
-
-
-
     private void cargarContenido() {
 
         TableLayout miTabla = findViewById(R.id.tableLayout);

@@ -116,11 +116,10 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/monedaSeleccionada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="@string/monedas"
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
@@ -215,5 +214,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonConvertir" />
+
+    <TextView
+        android:id="@+id/enlaceMoneda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#FDD835"
+        android:onClick="navegar"
+        android:text="@string/pulsa_aqui_para_ver_la_cotizaci_n_del_bitcoin"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/resultadoTxt"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/buttonFinalizar"
+        android:layout_width="265dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#F4511E"
+        android:onClick="finalizarSesion"
+        android:text="@string/finalizar_sesion"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enlaceMoneda"
+        app:layout_constraintVertical_bias="0.394" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

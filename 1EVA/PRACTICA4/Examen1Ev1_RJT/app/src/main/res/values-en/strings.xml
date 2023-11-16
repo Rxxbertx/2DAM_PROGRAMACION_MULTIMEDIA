@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="convertir">CONVERT</string>
+    <string name="importe">Import</string>
     <string name="moneda_destino">From currency</string>
     <string name="moneda_origen">To currency</string>
+    <string name="conversor_de_monedas">CURRENCY CONVERTER</string>
+    <string name="modo_avanzado">Advanced Mode</string>
+    <string name="modo_normal">Normal Mode</string>
+    <string name="finalizar_sesion">EXIT SESION</string>
+    <string name="pulsa_aqui_para_ver_la_cotizaci_n_del_bitcoin">Clic here to see bitcoin cotization</string>
+    <string name="historial_conversiones">CONVERSION HISTORY</string>
 </resources>

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -104,14 +105,15 @@ public class MainActivity extends AppCompatActivity {
         imGCamara = findViewById(R.id.avatar);
 
         useRName= findViewById(R.id.editTextNombre);
-        camerALauncher = registerForActivityResult(new ActivityResultContracts.TakePicturePreview(), result -> {
-            if (result != null) {
+        camerALauncher = registerForActivityResult(new ActivityResultContracts.TakePicturePreview(), new ActivityResultCallback<Bitmap>() {
+            @Override
+            public void onActivityResult(Bitmap result) {
                 imGCamara.setImageBitmap(result);
             }
         });
     }
 
-    public void openCamera(View view) {
+        public void openCamera(View view) {
 
         camerALauncher.launch(null);
 
