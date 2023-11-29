@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements rsFragment.OnFragmentInteractListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,5 +14,13 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragmentContainerView,new rsFragment())
                 .commit();
+    }
+
+    @Override
+    public void pasarDatos(int dato) {
+
+
+
+
     }
 }
