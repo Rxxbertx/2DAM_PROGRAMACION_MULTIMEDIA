@@ -4,6 +4,192 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#047F49"
     tools:context=".PreguntaUnoActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.rsoftware.practica6.ProgressFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_progress" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:foregroundGravity="center"
+        app:cardBackgroundColor="#BF000000"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aldrich"
+                android:gravity="center"
+                android:text="@string/pregunta1"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:chipSpacingHorizontal="6dp"
+                app:chipSpacingVertical="0dp"
+                app:selectionRequired="false"
+                app:singleLine="false"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipBlender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:checkable="true"
+                    android:drawableTop="@drawable/icons8_blender"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="Blender"
+                    android:textAlignment="center"
+                    app:checkedIcon="@android:drawable/alert_light_frame"
+                    app:checkedIconEnabled="true"
+                    app:chipBackgroundColor="#D6A376" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipUnreal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:checkable="true"
+                    android:checked="false"
+                    android:drawableTop="@drawable/icons8_unrealengine"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="Unreal Engine"
+                    app:checkedIcon="@android:drawable/alert_light_frame"
+                    app:checkedIconEnabled="true"
+                    app:chipBackgroundColor="#929292" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:checkable="true"
+                    android:checked="false"
+                    android:drawableTop="@drawable/icons8_slack"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="Slack"
+                    android:textAlignment="center"
+                    app:checkedIcon="@android:drawable/alert_light_frame"
+                    app:checkedIconEnabled="true"
+                    app:chipBackgroundColor="#5E95C1" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCanva"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:checkable="true"
+                    android:drawableTop="@drawable/icons8_canva"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="Canva"
+                    android:textAlignment="center"
+                    app:checkedIcon="@android:drawable/alert_light_frame"
+                    app:checkedIconEnabled="true"
+                    app:chipBackgroundColor="#54989B" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipGodot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:checkable="true"
+                    android:drawableTop="@drawable/icons8_godot"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="Godot"
+                    android:textAlignment="center"
+                    app:checkedIcon="@android:drawable/alert_light_frame"
+                    app:checkedIconEnabled="true"
+                    app:chipBackgroundColor="#988AD6" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipUnity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:checkable="true"
+                    android:drawableTop="@drawable/icons8_unity"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="Unity"
+                    android:textAlignment="center"
+                    app:checkedIcon="@android:drawable/alert_dark_frame"
+                    app:checkedIconEnabled="true"
+                    app:chipBackgroundColor="#F1EFEF" />
+            </com.google.android.material.chip.ChipGroup>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#5E4A148C"
+            android:fontFamily="@font/aldrich"
+            android:onClick="btnAtras"
+            android:text="@string/atras"
+            android:textSize="24sp"
+            app:cornerRadius="20dp" />
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="@font/aldrich"
+            android:onClick="btnNext"
+            android:text="@string/siguiente"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:cornerRadius="20dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    android:backgroundTint="#4B000000"
+    android:background="@drawable/logo"
+    android:backgroundTint="#2FFFFFFF"
     android:backgroundTintMode="add"
     tools:context=".MainActivity">
 
@@ -15,47 +15,118 @@
         android:fontFamily="@font/aldrich"
         android:rotationX="-8"
         android:rotationY="12"
-        android:text="Examen APP"
+        android:text="@string/examen_app"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="34sp"
+        android:textSize="48sp"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19999999" />
+        app:layout_constraintVertical_bias="0.096" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextName"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:autofillHints=""
         android:ems="10"
+        android:fontFamily="@font/aldrich"
+        android:hint="@string/nombre"
         android:inputType="text"
-        android:text="Name"
+        android:minHeight="48dp"
+        android:singleLine="true"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:cardBackgroundColor="#BC000000"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="203dp" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.chip.ChipGroup
-        android:layout_width="134dp"
-        android:layout_height="87dp"
-        tools:layout_editor_absoluteX="115dp"
-        tools:layout_editor_absoluteY="301dp">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip2"
-            style="@style/Widget.Material3.Chip.Assist"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checkable="true"
-            android:checked="true"
-            android:text="10"
-            app:checkedIconTint="#000000"
-            app:checkedIconVisible="true"
-            app:chipIconTint="#705B5B"
-            app:chipIconVisible="true"
-            app:chipStrokeColor="#00FFFFFF" />
-    </com.google.android.material.chip.ChipGroup>
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/aldrich"
+                android:text="@string/puntuacion_sobre"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip10"
+                    style="@style/Widget.Material3.Chip.Assist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:checked="false"
+                    android:text="@string/_10"
+                    android:textSize="20sp"
+                    app:checkedIconTint="#000000"
+                    app:checkedIconVisible="true" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip100"
+                    style="@style/Widget.Material3.Chip.Assist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:checked="false"
+                    android:text="@string/_100"
+                    android:textSize="20sp"
+                    app:checkedIconTint="#000000"
+                    app:checkedIconVisible="true" />
+            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#BC1F201F"
+        android:fontFamily="@font/aldrich"
+        android:onClick="btnNext"
+        android:text="@string/comenzar"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:rippleColor="#000000" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
