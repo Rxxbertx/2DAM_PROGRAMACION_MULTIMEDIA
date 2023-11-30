@@ -2,8 +2,8 @@
 <resources>
     <string name="convertir">CONVERT</string>
     <string name="importe">Import</string>
-    <string name="moneda_destino">From currency</string>
-    <string name="moneda_origen">To currency</string>
+    <string name="moneda_destino">To currency</string>
+    <string name="moneda_origen">From currency</string>
     <string name="conversor_de_monedas">CURRENCY CONVERTER</string>
     <string name="modo_avanzado">Advanced Mode</string>
     <string name="modo_normal">Normal Mode</string>

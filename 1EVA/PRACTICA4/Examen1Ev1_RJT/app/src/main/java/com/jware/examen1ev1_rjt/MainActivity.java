@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private static String BITCOIN = "bitcoins";
 
     private Conversor conversor = new Conversor();
-    private static ArrayList<String> historial = new ArrayList<>();
+    private  ArrayList<String> historial = new ArrayList<>();
     private EditText importe;
 
     private RadioGroup radioGroupOrigen;
