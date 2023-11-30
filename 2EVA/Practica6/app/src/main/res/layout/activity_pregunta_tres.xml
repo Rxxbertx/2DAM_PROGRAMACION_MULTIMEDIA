@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#047F49"
+    tools:context=".PreguntaDosActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.rsoftware.practica6.ProgressFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_progress" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="338dp"
+        android:layout_height="415dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
+        app:srcCompat="@drawable/java_logo" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:foregroundGravity="center"
+        app:cardBackgroundColor="#BF000000"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aldrich"
+                android:gravity="center"
+                android:text="3. Selecciona la opcion correcta: \n ¿Como creamos una variable atomica en java?"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:minWidth="100dp"
+                app:singleLine="false"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#63000000"
+                    android:buttonTint="#F7971D"
+                    android:drawableStart="@color/black"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    android:minEms="15"
+                    android:text="AtomicData(Tipo de Dato)"
+                    android:textColor="#FFFFFF" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCorrecto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#63000000"
+                    android:buttonTint="#F7971D"
+                    android:drawableStart="@color/black"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    android:minEms="15"
+                    android:text="Atomic(Tipo de Dato)"
+                    android:textColor="#FFFFFF" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#63000000"
+                    android:buttonTint="#F7971D"
+                    android:drawableStart="@color/black"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    android:minEms="15"
+                    android:text="AtomicVar(Tipo de Dato)"
+                    android:textColor="#FFFFFF" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#F7971D"
+            android:fontFamily="@font/aldrich"
+            android:onClick="btnAtras"
+            android:text="@string/atras"
+            android:textSize="24sp"
+            app:cornerRadius="20dp" />
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="@font/aldrich"
+            android:onClick="btnNext"
+            android:text="@string/siguiente"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:cornerRadius="20dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

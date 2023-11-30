@@ -121,6 +121,7 @@
         android:fontFamily="@font/aldrich"
         android:onClick="btnNext"
         android:text="@string/comenzar"
+        android:textColor="#FFFFFF"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
