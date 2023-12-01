@@ -7,20 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.rsoftware.practica6.interfaces.Pregunta;
+
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private PreguntasManager manager = PreguntasManager.obtenerInstancia();
+    private final PreguntasManager manager = PreguntasManager.obtenerInstancia();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
 
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
        // Intent int = new Intent(this, PreguntaUnoActivity.class);
         manager.creacionPreguntasAleatorio();
-        startActivity(new Intent(this, manager.obtenerPregunta(PreguntasManager.PREGUNTA_1)));
+        startActivity(new Intent(this, manager.obtenerPreguntaSiguiente()));
 
     }
 }

@@ -2,6 +2,9 @@ package com.rsoftware.practica6;
 
 
 import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.rsoftware.practica6.interfaces.Pregunta;
 
@@ -11,31 +14,24 @@ import java.util.Collections;
 public class PreguntasManager {
 
     public static final int TOTAL_PREGUNTAS = 5;
-    public static final int PREGUNTA_1 = 0;
-    public static final int PREGUNTA_2 = 1;
-    public static final int PREGUNTA_3 = 2;
-    public static final int PREGUNTA_4 = 3;
-    public static final int PREGUNTA_5 = 4;
-
     private static final int PUNTUACION_PREGUNTA_1 = 2;
     private static final int PUNTUACION_PREGUNTA_2 = 2;
     private static final int PUNTUACION_PREGUNTA_3 = 3;
     private static final int PUNTUACION_PREGUNTA_4 = 2;
     private static final int PUNTUACION_PREGUNTA_5 = 1;
 
-    private int puntuacionSeleccionada = 0;
+    private int puntuacionSeleccionada = 1;
+    private int posicion = -1;
+    private int progreso = 0;
 
 
 
-
-    // La instancia única de la clase, inicializada estáticamente
     private static final PreguntasManager instancia = new PreguntasManager();
 
-    private ArrayList<Class<? extends Pregunta>> preguntas = new ArrayList<>();
+    private final ArrayList<Class<? extends Pregunta>> preguntas = new ArrayList<>();
 
-    // Constructor privado para evitar la creación de instancias desde fuera de la clase
     private PreguntasManager() {
-        // Inicialización de la instancia (si es necesario)
+
     }
 
     public void modificarPuntuacion(int puntuacion){
@@ -50,6 +46,7 @@ public class PreguntasManager {
 
     public void creacionPreguntasAleatorio() {
 
+        posicion=-1;
 
         preguntas.add(PreguntaUnoActivity.class);
 
@@ -65,11 +62,6 @@ public class PreguntasManager {
 
     }
 
-    public Class<? extends Pregunta> obtenerPregunta(int pregunta) {
-
-        return preguntas.get(pregunta);
-
-    }
 
     public int obtenerPuntuacionPregunta (Class<? extends Pregunta> pregunta){
 
@@ -94,4 +86,49 @@ public class PreguntasManager {
 
     }
 
+    public Class<?extends Pregunta> obtenerPreguntaSiguiente() {
+
+        posicion++;
+        progreso++;
+
+        Class<?extends Pregunta> clase = preguntas.get(posicion);
+
+
+        Log.println(Log.ERROR,"ERROR",String.valueOf(posicion));
+
+
+        if (posicion>=preguntas.size()) return null;
+
+        if (progreso > TOTAL_PREGUNTAS){
+            progreso = TOTAL_PREGUNTAS;
+        }
+
+        return clase;
+    }
+    public Class<?extends Pregunta> obtenerPreguntaAnterior() {
+
+        posicion--;
+        progreso--;
+
+        if (posicion<0){
+            posicion = -1;
+            return null;
+        }
+
+        Class<?extends Pregunta> clase = preguntas.get(posicion);
+
+
+        if (progreso < 0){
+            progreso = 0;
+        }
+        return clase;
+    }
+
+    public Bundle getBundle(Class<?extends Pregunta>clase) {
+
+        Bundle b = new Bundle();
+        b.putInt(ProgressFragment.PARAM_PROGRESO,progreso);
+        b.putInt(ProgressFragment.PARAM_PUNTUACION,obtenerPuntuacionPregunta(clase));
+        return b;
+    }
 }
