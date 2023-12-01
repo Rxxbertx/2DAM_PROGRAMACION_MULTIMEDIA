@@ -4,7 +4,6 @@
 
     <application
         android:allowBackup="true"
-
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -14,17 +13,26 @@
         android:theme="@style/Theme.Practica6"
         tools:targetApi="31">
         <activity
+            android:name=".FinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PreguntaCincoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PreguntaCuatroActivity"
+            android:exported="false" />
+        <activity
             android:name=".PreguntaTresActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PreguntaDosActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PreguntaUnoActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#047F49"
-    tools:context=".PreguntaTresActivity">
+    tools:context=".PreguntaCuatroActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
-        app:srcCompat="@drawable/java_logo"
+        app:srcCompat="@drawable/question"
         android:importantForAccessibility="no" />
 
     <androidx.cardview.widget.CardView
@@ -48,11 +48,12 @@
 
         <LinearLayout
             android:layout_width="368dp"
-            android:layout_height="wrap_content"
+            android:layout_height="203dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="20dp"
+            tools:ignore="TextSizeCheck">
 
             <TextView
                 android:id="@+id/textView2"
@@ -60,71 +61,94 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
                 android:gravity="center"
-                android:text="@string/pregunta3"
+                android:padding="10dp"
+                android:text="@string/pregunta4"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
             <com.google.android.material.chip.ChipGroup
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:minWidth="100dp"
                 android:minHeight="200dp"
+                android:textAlignment="center"
                 app:singleLine="false"
                 app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checkable="true"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:minHeight="48dp"
-                    android:text="@string/atomicdata_tipo_de_dato"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
-                    app:chipBackgroundColor="#60000000"
-                    app:chipEndPadding="20dp"
-                    app:chipStartPadding="0dp"
-                    app:chipStrokeWidth="0dp"
-                    app:chipSurfaceColor="#00FFFFFF" />
-
-                <com.google.android.material.chip.Chip
                     android:id="@+id/chipCorrecto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checkable="true"
-                    android:checked="false"
-                    android:gravity="center"
-                    android:minHeight="48dp"
-                    android:text="@string/atomic_tipo_de_dato"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
-                    app:chipBackgroundColor="#60000000"
-                    app:chipEndPadding="20dp"
-                    app:chipStrokeWidth="0dp"
-                    app:chipSurfaceColor="#00FFFFFF" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip5"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checkable="true"
                     android:checked="false"
                     android:fontFamily="@font/aldrich"
-                    android:minHeight="48dp"
-                    android:text="@string/atomicvar_tipo_de_dato"
+                    android:minWidth="75dp"
+                    android:text="@string/trello"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
-                    app:chipBackgroundColor="#60000000"
-                    app:chipEndPadding="20dp"
-                    app:chipStrokeWidth="0dp"
-                    app:chipSurfaceColor="#00FFFFFF" />
+                    android:textSize="20sp"
+                    app:chipStrokeColor="#00A3FA"
+                    app:chipStrokeWidth="2dp" />
 
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:textAlignment="center"
+                    app:srcCompat="@drawable/icons8_slack" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:checked="false"
+                    android:fontFamily="@font/aldrich"
+                    android:minWidth="75dp"
+                    android:text="@string/teams"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:chipStrokeColor="#43A047"
+                    app:chipStrokeWidth="2dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:checked="false"
+                    android:fontFamily="@font/aldrich"
+                    android:minWidth="75dp"
+                    android:text="@string/slack"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:chipStrokeColor="#D81B60"
+                    app:chipStrokeWidth="2dp" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/icons8_slack" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:checkable="true"
+                    android:fontFamily="@font/aldrich"
+
+                    android:minWidth="75dp"
+                    android:text="@string/adobe"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:chipStrokeColor="#FDD835"
+                    app:chipStrokeWidth="2dp" />
             </com.google.android.material.chip.ChipGroup>
 
         </LinearLayout>
@@ -147,11 +171,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#F7971D"
+            android:backgroundTint="#000000"
             android:fontFamily="@font/aldrich"
             android:onClick="btnAtras"
             android:text="@string/atras"
-            android:textColor="#455A64"
+            android:textColor="#546E7A"
             android:textSize="24sp"
             app:cornerRadius="20dp" />
 

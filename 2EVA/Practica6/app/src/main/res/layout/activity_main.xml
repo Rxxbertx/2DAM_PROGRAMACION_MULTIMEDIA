@@ -77,13 +77,15 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/aldrich"
                 android:text="@string/puntuacion_sobre"
-                android:textColor="#FFFFFF"
+                android:textColor="#A1887F"
                 android:textSize="34sp" />
 
             <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip10"

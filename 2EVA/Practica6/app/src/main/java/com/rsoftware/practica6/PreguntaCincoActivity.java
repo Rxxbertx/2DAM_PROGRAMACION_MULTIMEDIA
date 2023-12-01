@@ -8,20 +8,20 @@ import android.view.View;
 
 import com.rsoftware.practica6.interfaces.Pregunta;
 
-public class PreguntaTresActivity extends AppCompatActivity implements Pregunta {
+public class PreguntaCincoActivity extends AppCompatActivity implements Pregunta {
     private PreguntasManager manager = PreguntasManager.obtenerInstancia();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pregunta_tres);
-    }
-
-    public void btnAtras(View view) {
+        setContentView(R.layout.activity_pregunta_cinco);
     }
 
     public void btnNext(View view) {
 
-        startActivity(new Intent(this, manager.obtenerPregunta(PreguntasManager.PREGUNTA_4)));
+        startActivity(new Intent(this, manager.obtenerPregunta(PreguntasManager.PREGUNTA_1)));
 
+    }
+
+    public void btnAtras(View view) {
     }
 }

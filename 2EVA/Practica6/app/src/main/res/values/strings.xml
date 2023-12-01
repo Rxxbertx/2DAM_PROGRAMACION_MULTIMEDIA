@@ -6,15 +6,34 @@
     <string name="_100">100</string>
     <string name="nombre">Nombre</string>
     <string name="puntuacion_sobre">Puntuacion Sobre</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="progressNumber">0</string>
     <string name="Totalquestions">5</string>
     <string name="progreso">Progreso:</string>
     <string name="puntuacion_pregunta">"Puntuacion Pregunta: "</string>
     <string name="puntuacionNum">10</string>
-    <string name="pregunta1">1. Cual de estos programas es para el desarrollo de Videojuegos Ultrarealistas</string>
+    <string name="pregunta1">Cual de estos programas es para el desarrollo de Videojuegos Ultrarealistas</string>
     <string name="siguiente">Siguiente</string>
     <string name="atras">Atras</string>
-    <string name="pregunta2">2. Completa la frase con una palabara: Python es un lenguaje de.....</string>
+    <string name="pregunta2">Completa la frase con una palabara: Python es un lenguaje de.....</string>
+    <string name="python">python</string>
+    <string name="atomicdata_tipo_de_dato">AtomicData(Tipo de Dato)</string>
+    <string name="atomicvar_tipo_de_dato">AtomicVar(Tipo de Dato)</string>
+    <string name="atomic_tipo_de_dato">Atomic(Tipo de Dato)</string>
+    <string name="pregunta3">Selecciona la opcion correcta: \n ¿Como creamos una variable atomica en java?</string>
+    <string name="trello">Trello</string>
+    <string name="teams">Teams</string>
+    <string name="adobe">Adobe</string>
+    <string name="slack">Slack</string>
+    <string name="pregunta4">Adivina el nombre de la app</string>
+    <string name="pregunta5">Con que FRAMEWORK ser realizan drivers para macOS</string>
+    <string name="appledriverkit">AppleDriverKit</string>
+    <string name="macdriverkit">macDriverKit</string>
+    <string name="swiftkit">SwiftKit</string>
+    <string name="iokit">IOKit</string>
+    <string name="nota_obtenida">Nota obtenida</string>
+    <string name="aciertos">ACIERTOS</string>
+    <string name="fallos">FALLOS</string>
+    <string name="volver_a_intentar">VOLVER A INTENTAR</string>
+    <string name="resumen">RESUMEN</string>
 </resources>

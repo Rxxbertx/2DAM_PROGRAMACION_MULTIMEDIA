@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#047F49"
-    tools:context=".PreguntaTresActivity">
+    tools:context=".PreguntaCincoActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
@@ -21,15 +21,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="338dp"
-        android:layout_height="415dp"
+        android:layout_width="340dp"
+        android:layout_height="367dp"
+        android:importantForAccessibility="no"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
-        app:srcCompat="@drawable/java_logo"
-        android:importantForAccessibility="no" />
+        app:srcCompat="@drawable/apple_dev_logo" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -52,7 +52,8 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="20dp"
+            tools:ignore="TextSizeCheck">
 
             <TextView
                 android:id="@+id/textView2"
@@ -60,7 +61,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aldrich"
                 android:gravity="center"
-                android:text="@string/pregunta3"
+                android:padding="10dp"
+                android:text="@string/pregunta5"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
@@ -68,28 +70,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:foregroundGravity="center"
                 android:minWidth="100dp"
                 android:minHeight="200dp"
+                android:textAlignment="center"
                 app:singleLine="false"
                 app:singleSelection="true">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checkable="true"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:minHeight="48dp"
-                    android:text="@string/atomicdata_tipo_de_dato"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
-                    app:chipBackgroundColor="#60000000"
-                    app:chipEndPadding="20dp"
-                    app:chipStartPadding="0dp"
-                    app:chipStrokeWidth="0dp"
-                    app:chipSurfaceColor="#00FFFFFF" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipCorrecto"
@@ -97,34 +83,68 @@
                     android:layout_height="wrap_content"
                     android:checkable="true"
                     android:checked="false"
+                    android:foregroundGravity="center_vertical|center"
                     android:gravity="center"
                     android:minHeight="48dp"
-                    android:text="@string/atomic_tipo_de_dato"
+                    android:text="@string/iokit"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
+                    android:textSize="20sp"
                     android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
                     app:chipBackgroundColor="#60000000"
-                    app:chipEndPadding="20dp"
+                    app:chipEndPadding="25dp"
                     app:chipStrokeWidth="0dp"
                     app:chipSurfaceColor="#00FFFFFF" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chip5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checkable="true"
                     android:checked="false"
-                    android:fontFamily="@font/aldrich"
+                    android:minWidth="75dp"
                     android:minHeight="48dp"
-                    android:text="@string/atomicvar_tipo_de_dato"
+                    android:text="@string/appledriverkit"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
+                    android:textSize="20sp"
                     android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
                     app:chipBackgroundColor="#60000000"
-                    app:chipEndPadding="20dp"
+                    app:chipEndPadding="25dp"
                     app:chipStrokeWidth="0dp"
                     app:chipSurfaceColor="#00FFFFFF" />
 
+                <com.google.android.material.chip.Chip
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:checked="false"
+                    android:minWidth="75dp"
+                    android:minHeight="48dp"
+                    android:text="@string/macdriverkit"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
+                    app:chipBackgroundColor="#60000000"
+                    app:chipEndPadding="25dp"
+                    app:chipStrokeWidth="0dp"
+                    app:chipSurfaceColor="#00FFFFFF" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:minHeight="48dp"
+                    android:text="@string/swiftkit"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
+                    android:typeface="normal"
+                    app:chipBackgroundColor="#60000000"
+                    app:chipEndPadding="25dp"
+                    app:chipStrokeWidth="0dp"
+                    app:chipSurfaceColor="#00FFFFFF" />
             </com.google.android.material.chip.ChipGroup>
 
         </LinearLayout>
@@ -147,11 +167,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#F7971D"
+            android:backgroundTint="#1E88E5"
             android:fontFamily="@font/aldrich"
             android:onClick="btnAtras"
             android:text="@string/atras"
-            android:textColor="#455A64"
+            android:textColor="#263238"
             android:textSize="24sp"
             app:cornerRadius="20dp" />
 
