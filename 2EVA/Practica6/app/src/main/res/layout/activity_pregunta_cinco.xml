@@ -67,6 +67,7 @@
                 android:textSize="20sp" />
 
             <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -75,7 +76,7 @@
                 android:minHeight="200dp"
                 android:textAlignment="center"
                 app:singleLine="false"
-                app:singleSelection="true">
+                app:singleSelection="false">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipCorrecto"
@@ -86,6 +87,7 @@
                     android:foregroundGravity="center_vertical|center"
                     android:gravity="center"
                     android:minHeight="48dp"
+                    android:tag="@string/iokit"
                     android:text="@string/iokit"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
@@ -97,12 +99,14 @@
                     app:chipSurfaceColor="#00FFFFFF" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipADK"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checkable="true"
                     android:checked="false"
                     android:minWidth="75dp"
                     android:minHeight="48dp"
+                    android:tag="@string/appledriverkit"
                     android:text="@string/appledriverkit"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
@@ -114,13 +118,15 @@
                     app:chipSurfaceColor="#00FFFFFF" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCorrecto1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checkable="true"
                     android:checked="false"
                     android:minWidth="75dp"
                     android:minHeight="48dp"
-                    android:text="@string/macdriverkit"
+                    android:tag="@string/driverkit"
+                    android:text="@string/driverkit"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
@@ -131,10 +137,12 @@
                     app:chipSurfaceColor="#00FFFFFF" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSwiftKit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checkable="true"
                     android:minHeight="48dp"
+                    android:tag="@string/swiftkit"
                     android:text="@string/swiftkit"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"

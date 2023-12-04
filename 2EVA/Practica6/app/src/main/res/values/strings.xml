@@ -26,9 +26,8 @@
     <string name="adobe">Adobe</string>
     <string name="slack">Slack</string>
     <string name="pregunta4">Adivina el nombre de la app</string>
-    <string name="pregunta5">Con que FRAMEWORK ser realizan drivers para macOS</string>
+    <string name="pregunta5">Con que FRAMEWORKs se gestionan driver en macOS</string>
     <string name="appledriverkit">AppleDriverKit</string>
-    <string name="macdriverkit">macDriverKit</string>
     <string name="swiftkit">SwiftKit</string>
     <string name="iokit">IOKit</string>
     <string name="nota_obtenida">Nota obtenida</string>
@@ -36,4 +35,18 @@
     <string name="fallos">FALLOS</string>
     <string name="volver_a_intentar">VOLVER A INTENTAR</string>
     <string name="resumen">RESUMEN</string>
+    <string name="selecciona_la_puntuacion">SELECCIONA LA PUNTUACION</string>
+    <string name="ingresa_un_nombre">INGRESA UN NOMBRE</string>
+    <string name="pregunta1id">PREGUNTA1</string>
+    <string name="pregunta2respuesta">scripting</string>
+    <string name="pregunta2id">PREGUNTA2</string>
+    <string name="pregunta3id">PREGUNTA3</string>
+    <string name="blender">Blender</string>
+    <string name="canva">Canva</string>
+    <string name="unreal_engine">Unreal Engine</string>
+    <string name="godot">Godot</string>
+    <string name="unity">Unity</string>
+    <string name="pregunta4id">PREGUNTA4</string>
+    <string name="pregunta5id">PREGUNTA5</string>
+    <string name="driverkit">DriverKit</string>
 </resources>

@@ -64,68 +64,19 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
-            <com.google.android.material.chip.ChipGroup
+            <Spinner
+                android:id="@+id/spinnerPregunta3"
+                style="@android:style/Widget.Spinner.DropDown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:minWidth="100dp"
-                android:minHeight="200dp"
-                app:singleLine="false"
-                app:singleSelection="true">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checkable="true"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:minHeight="48dp"
-                    android:text="@string/atomicdata_tipo_de_dato"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
-                    app:chipBackgroundColor="#60000000"
-                    app:chipEndPadding="20dp"
-                    app:chipStartPadding="0dp"
-                    app:chipStrokeWidth="0dp"
-                    app:chipSurfaceColor="#00FFFFFF" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipCorrecto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checkable="true"
-                    android:checked="false"
-                    android:gravity="center"
-                    android:minHeight="48dp"
-                    android:text="@string/atomic_tipo_de_dato"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
-                    app:chipBackgroundColor="#60000000"
-                    app:chipEndPadding="20dp"
-                    app:chipStrokeWidth="0dp"
-                    app:chipSurfaceColor="#00FFFFFF" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checkable="true"
-                    android:checked="false"
-                    android:fontFamily="@font/aldrich"
-                    android:minHeight="48dp"
-                    android:text="@string/atomicvar_tipo_de_dato"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:theme="@style/Widget.Material3.CompoundButton.CheckBox"
-                    app:chipBackgroundColor="#60000000"
-                    app:chipEndPadding="20dp"
-                    app:chipStrokeWidth="0dp"
-                    app:chipSurfaceColor="#00FFFFFF" />
-
-            </com.google.android.material.chip.ChipGroup>
+                android:backgroundTint="#7391A9"
+                android:backgroundTintMode="multiply"
+                android:entries="@array/valoresPreguntaTres"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:minHeight="48dp"
+                android:textAlignment="center" />
 
         </LinearLayout>
 

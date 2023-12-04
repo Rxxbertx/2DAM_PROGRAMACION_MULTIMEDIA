@@ -67,6 +67,7 @@
                 android:textSize="20sp" />
 
             <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -77,13 +78,14 @@
                 app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chipCorrecto"
+                    android:id="@+id/chipTrello"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checkable="true"
                     android:checked="false"
                     android:fontFamily="@font/aldrich"
                     android:minWidth="75dp"
+                    android:tag="@string/trello"
                     android:text="@string/trello"
                     android:textAlignment="center"
                     android:textSize="20sp"
@@ -99,13 +101,14 @@
                     app:srcCompat="@drawable/icons8_slack" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chip3"
+                    android:id="@+id/chipTeams"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checkable="true"
                     android:checked="false"
                     android:fontFamily="@font/aldrich"
                     android:minWidth="75dp"
+                    android:tag="@string/teams"
                     android:text="@string/teams"
                     android:textAlignment="center"
                     android:textSize="20sp"
@@ -113,13 +116,14 @@
                     app:chipStrokeWidth="2dp" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chip4"
+                    android:id="@+id/chipCorrecto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checkable="true"
                     android:checked="false"
                     android:fontFamily="@font/aldrich"
                     android:minWidth="75dp"
+                    android:tag="@string/slack"
                     android:text="@string/slack"
                     android:textAlignment="center"
                     android:textSize="20sp"
@@ -136,7 +140,7 @@
                     app:srcCompat="@drawable/icons8_slack" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chip6"
+                    android:id="@+id/chipAdobe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
@@ -144,6 +148,7 @@
                     android:fontFamily="@font/aldrich"
 
                     android:minWidth="75dp"
+                    android:tag="@string/adobe"
                     android:text="@string/adobe"
                     android:textAlignment="center"
                     android:textSize="20sp"

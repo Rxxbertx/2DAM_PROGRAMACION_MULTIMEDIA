@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="valoresPreguntaTres">
+
+        <item>AtomicData(Tipo de Dato)</item>
+        <item>AtomicVar(Tipo de Dato)</item>
+        <item>Atomic(Tipo de Dato)</item>
+
+
+    </string-array>
+
+
+</resources>

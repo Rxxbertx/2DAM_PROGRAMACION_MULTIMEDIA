@@ -15,13 +15,16 @@
         tools:targetApi="33">
         <activity
             android:name=".FinalActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".PreguntaCincoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".PreguntaCuatroActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".PreguntaTresActivity"
             android:exported="false"
