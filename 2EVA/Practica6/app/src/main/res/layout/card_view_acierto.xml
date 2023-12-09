@@ -1,0 +1,61 @@
+<!-- res/layout/acierto_cardview_layout.xml -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardViewAcierto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    cardview:cardBackgroundColor="#9F000000"
+    cardview:cardCornerRadius="20dp"
+    cardview:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textViewPreguntaAcierto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aldrich"
+            android:text="@string/pregunta1"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewPuntuacionPreguntaAcierto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aldrich"
+            android:text="@string/puntuacion"
+            android:textAlignment="center"
+            android:textColor="#49FF03"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewRespuestaCorrectaPreguntaAcierto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aldrich"
+            android:text="@string/respuesta_correcta"
+            android:textAlignment="center"
+            android:textColor="#A4E4A8"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewRespuestaUsuarioPreguntaAcierto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aldrich"
+            android:text="@string/respuesta_usuario"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EXAM</string>
+    <string name="examen_app">Exam App</string>
+    <string name="comenzar">Start</string>
+    <string name="nombre">Name</string>
+    <string name="puntuacion_sobre">Score Out Of</string>
+    <string name="progreso">Progress:</string>
+    <string name="puntuacion_pregunta">"Question Score: "</string>
+    <string name="pregunta1">Which of these programs is for the development of Ultra-realistic Video Games</string>
+    <string name="siguiente">Next</string>
+    <string name="atras">Back</string>
+    <string name="pregunta2">Complete the sentence with a word: Python is a language for.....</string>
+    <string name="python">python</string>
+    <string name="pregunta3">Select the correct option: \n How do we create an atomic variable in Java?</string>
+    <string name="trello">Trello</string>
+    <string name="teams">Teams</string>
+    <string name="adobe">Adobe</string>
+    <string name="slack">Slack</string>
+    <string name="pregunta4">Guess the name of the app</string>
+    <string name="pregunta5">With which FRAMEWORKs are drivers managed in macOS</string>
+    <string name="appledriverkit">AppleDriverKit</string>
+    <string name="swiftkit">SwiftKit</string>
+    <string name="iokit">IOKit</string>
+    <string name="nota_obtenida">Score Obtained</string>
+    <string name="aciertos">"CORRECT ANSWERS: "</string>
+    <string name="fallos">"MISTAKES: "</string>
+    <string name="volver_a_intentar">TRY AGAIN</string>
+    <string name="resumen">SUMMARY</string>
+    <string name="selecciona_la_puntuacion">SELECT THE SCORE</string>
+    <string name="ingresa_un_nombre">ENTER A NAME</string>
+    <string name="pregunta2respuesta">scripting</string>
+    <string name="blender">Blender</string>
+    <string name="canva">Canva</string>
+    <string name="unreal_engine">Unreal Engine</string>
+    <string name="godot">Godot</string>
+    <string name="unity">Unity</string>
+    <string name="driverkit">DriverKit</string>
+    <string name="puntuacion">"SCORE: "</string>
+    <string name="respuesta_correcta">"Correct Answer: "</string>
+    <string name="respuesta_usuario">"User Answer: "</string>
+
+</resources>

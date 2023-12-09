@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#047F49"
     android:layout_height="match_parent"
+    android:background="#F0047F49"
     tools:context=".FinalActivity">
 
     <TextView
@@ -14,10 +14,9 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/aldrich"
         android:text="@string/resumen"
-        android:textColor="#E1BEE7"
+        android:textColor="#4A148C"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,15 +44,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/aldrich"
-            android:text="X"
             android:textColor="#212121"
             android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="102dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:orientation="vertical"
@@ -64,6 +65,7 @@
         app:layout_constraintVertical_chainStyle="packed">
 
         <TextView
+            android:id="@+id/textViewAciertos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/aldrich"
@@ -73,17 +75,30 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:contentDescription="@string/aciertos">
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/aciertos"
+            android:fadeScrollbars="false"
+            android:scrollbarStyle="insideOverlay">
 
+            <LinearLayout
+                android:id="@+id/layoutAciertos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp" />
         </ScrollView>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/button3"
@@ -92,6 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TextView
+            android:id="@+id/textViewFallos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/aldrich"
@@ -101,9 +117,20 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:contentDescription="@string/fallos">
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/fallos"
+            android:fadeScrollbars="false"
+            android:scrollbarStyle="insideOverlay">
 
+
+            <LinearLayout
+                android:id="@+id/layoutFallos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp" />
         </ScrollView>
     </LinearLayout>
 
@@ -114,6 +141,7 @@
         android:layout_marginBottom="44dp"
         android:backgroundTint="#954A148C"
         android:fontFamily="@font/aldrich"
+        android:onClick="btnBack"
         android:text="@string/volver_a_intentar"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

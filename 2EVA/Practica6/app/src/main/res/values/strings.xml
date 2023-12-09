@@ -1,25 +1,24 @@
 <resources>
-    <string name="app_name">Practica6</string>
+    <string name="app_name">EXAMEN</string>
     <string name="examen_app">Examen APP</string>
     <string name="comenzar">Comenzar</string>
-    <string name="_10">10</string>
-    <string name="_100">100</string>
+    <string name="_10" translatable="false">10</string>
+    <string name="_100" translatable="false">100</string>
     <string name="nombre">Nombre</string>
     <string name="puntuacion_sobre">Puntuacion Sobre</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="progressNumber">0</string>
-    <string name="Totalquestions">5</string>
+    <string name="progressNumber" translatable="false">0</string>
+    <string name="Totalquestions" translatable="false">5</string>
     <string name="progreso">Progreso:</string>
     <string name="puntuacion_pregunta">"Puntuacion Pregunta: "</string>
-    <string name="puntuacionNum">10</string>
+    <string name="puntuacionNum" translatable="false">10</string>
     <string name="pregunta1">Cual de estos programas es para el desarrollo de Videojuegos Ultrarealistas</string>
     <string name="siguiente">Siguiente</string>
     <string name="atras">Atras</string>
     <string name="pregunta2">Completa la frase con una palabara: Python es un lenguaje de.....</string>
     <string name="python">python</string>
-    <string name="atomicdata_tipo_de_dato">AtomicData(Tipo de Dato)</string>
-    <string name="atomicvar_tipo_de_dato">AtomicVar(Tipo de Dato)</string>
-    <string name="atomic_tipo_de_dato">Atomic(Tipo de Dato)</string>
+    <string name="atomicdata_tipo_de_dato" translatable="false">AtomicData</string>
+    <string name="atomicvar_tipo_de_dato" translatable="false">AtomicVar</string>
+    <string name="atomic_tipo_de_dato" translatable="false">Atomic</string>
     <string name="pregunta3">Selecciona la opcion correcta: \n ¿Como creamos una variable atomica en java?</string>
     <string name="trello">Trello</string>
     <string name="teams">Teams</string>
@@ -31,22 +30,25 @@
     <string name="swiftkit">SwiftKit</string>
     <string name="iokit">IOKit</string>
     <string name="nota_obtenida">Nota obtenida</string>
-    <string name="aciertos">ACIERTOS</string>
-    <string name="fallos">FALLOS</string>
+    <string name="aciertos">"ACIERTOS: "</string>
+    <string name="fallos">"FALLOS: "</string>
     <string name="volver_a_intentar">VOLVER A INTENTAR</string>
     <string name="resumen">RESUMEN</string>
     <string name="selecciona_la_puntuacion">SELECCIONA LA PUNTUACION</string>
     <string name="ingresa_un_nombre">INGRESA UN NOMBRE</string>
-    <string name="pregunta1id">PREGUNTA1</string>
+    <string name="pregunta1id" translatable="false">PREGUNTA1</string>
     <string name="pregunta2respuesta">scripting</string>
-    <string name="pregunta2id">PREGUNTA2</string>
-    <string name="pregunta3id">PREGUNTA3</string>
+    <string name="pregunta2id" translatable="false">PREGUNTA2</string>
+    <string name="pregunta3id" translatable="false">PREGUNTA3</string>
     <string name="blender">Blender</string>
     <string name="canva">Canva</string>
     <string name="unreal_engine">Unreal Engine</string>
     <string name="godot">Godot</string>
     <string name="unity">Unity</string>
-    <string name="pregunta4id">PREGUNTA4</string>
-    <string name="pregunta5id">PREGUNTA5</string>
+    <string name="pregunta4id" translatable="false">PREGUNTA4</string>
+    <string name="pregunta5id" translatable="false">PREGUNTA5</string>
     <string name="driverkit">DriverKit</string>
+    <string name="puntuacion">"PUNTUACION: "</string>
+    <string name="respuesta_correcta">"Respuesta Correcta: "</string>
+    <string name="respuesta_usuario">"Respuesta Usuario: "</string>
 </resources>
