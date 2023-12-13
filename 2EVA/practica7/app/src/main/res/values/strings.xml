@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">practica7</string>
+    <string name="pelis_top">PELIS TOP</string>
+    <string name="cars">CARS</string>
+    <string name="parasite">PARASITE</string>
+    <string name="whiplash">WHIPLASH</string>
+    <string name="shape_of_water">SHAPE OF WATER</string>
+</resources>
