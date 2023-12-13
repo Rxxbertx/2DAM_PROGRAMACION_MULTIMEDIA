@@ -58,7 +58,7 @@ public class PreguntaDosActivity extends AppCompatActivity implements Pregunta {
     @Override
     public String respuestaUsuario() {
 
-        return ((EditText)findViewById(R.id.campoRespuesta)).getText().toString().toLowerCase();
+        return ((EditText)findViewById(R.id.campoRespuesta)).getText().toString().toLowerCase().trim();
 
     }
 

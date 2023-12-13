@@ -18,16 +18,16 @@ import java.util.Collections;
 
 public class PreguntasManager {
 
-    public static final int TOTAL_PREGUNTAS = 5;
+    protected static final int TOTAL_PREGUNTAS = 5;
     private static final int PUNTUACION_PREGUNTA_1 = 2;
     private static final int PUNTUACION_PREGUNTA_2 = 2;
-    private static final int PUNTUACION_PREGUNTA_3 = 3;
+    private static final int PUNTUACION_PREGUNTA_3 = 1;
     private static final int PUNTUACION_PREGUNTA_4 = 2;
-    private static final int PUNTUACION_PREGUNTA_5 = 1;
+    private static final int PUNTUACION_PREGUNTA_5 = 3;
 
-    private static final int PREGUNTA_CORRECTA=0;
-    private static final int PREGUNTA_USUARIO =1;
-    private static final int PREGUNTA_ENUNCIADO =2;
+     static final int PREGUNTA_CORRECTA=0;
+     static final int PREGUNTA_USUARIO =1;
+     static final int PREGUNTA_ENUNCIADO =2;
 
     private int puntuacionSeleccionada = 1;
     private int posicion = -1;
@@ -43,16 +43,23 @@ public class PreguntasManager {
 
     }
 
-    public void modificarPuntuacion(int puntuacion){
+    protected int obtenerPuntuacionSeleccionada(){
+        if (puntuacionSeleccionada==10){
+            return 100;
+        }else{
+            return 10;
+        }
+    }
+    protected void modificarPuntuacion(int puntuacion){
         puntuacionSeleccionada = puntuacion;
     }
 
     // Método público para obtener la instancia única de la clase
-    public static PreguntasManager obtenerInstancia() {
+    protected static PreguntasManager obtenerInstancia() {
         return instancia;
     }
 
-    public void creacionPreguntasAleatorio() {
+    protected void creacionPreguntasAleatorio() {
 
         posicion=-1;
         progreso=0;
@@ -74,7 +81,7 @@ public class PreguntasManager {
     }
 
 
-    public int obtenerPuntuacionPregunta (Class<? extends Pregunta> pregunta){
+    protected int obtenerPuntuacionPregunta (Class<? extends Pregunta> pregunta){
 
         int puntuacion=0;
 
@@ -97,7 +104,7 @@ public class PreguntasManager {
 
     }
 
-    public Class<?extends Pregunta> obtenerPreguntaSiguiente() {
+    protected Class<?extends Pregunta> obtenerPreguntaSiguiente() {
 
         ++posicion;
         ++progreso;
@@ -118,7 +125,7 @@ public class PreguntasManager {
 
         return clase;
     }
-    public Class<?extends Pregunta> obtenerPreguntaAnterior() {
+    protected Class<?extends Pregunta> obtenerPreguntaAnterior() {
 
         --posicion;
         --progreso;
@@ -140,7 +147,7 @@ public class PreguntasManager {
         return clase;
     }
 
-    public Bundle getBundle(Class<?extends Pregunta>clase) {
+    protected Bundle getBundle(Class<?extends Pregunta>clase) {
 
         Bundle b = new Bundle();
         b.putInt(ProgressFragment.PARAM_PROGRESO,progreso);
@@ -148,7 +155,7 @@ public class PreguntasManager {
         return b;
     }
 
-    public void botonBackPregunta(AppCompatActivity act){
+    protected void botonBackPregunta(AppCompatActivity act){
 
         Pregunta pregunta = (Pregunta) act;
         act.getOnBackPressedDispatcher().addCallback(act, new OnBackPressedCallback(true) {
@@ -164,40 +171,41 @@ public class PreguntasManager {
     }
 
 
-    public float conseguirPuntuacionTotal(Bundle datos, Context context) {
+    protected float conseguirPuntuacionTotal(Bundle datos, Context context) {
         if (datos == null) return 0f;
 
         float puntuacion = 0f;
 
-        Log.d("ERROR", "conseguirPuntuacionTotal: "+puntuacion);
+        Log.d("0", "conseguirPuntuacionTotal: "+puntuacion);
         puntuacion += calcularPuntuacionPregunta(datos, context, R.string.pregunta1id, PreguntaUnoActivity.class);
-        Log.d("ERROR", "conseguirPuntuacionTotal: "+puntuacion);
+        Log.d("1", "conseguirPuntuacionTotal: "+puntuacion);
         puntuacion += calcularPuntuacionPregunta(datos, context, R.string.pregunta2id, PreguntaDosActivity.class);
-        Log.d("ERROR", "conseguirPuntuacionTotal: "+puntuacion);
+        Log.d("2", "conseguirPuntuacionTotal: "+puntuacion);
         puntuacion += calcularPuntuacionPregunta(datos, context, R.string.pregunta3id, PreguntaTresActivity.class);
-        Log.d("ERROR", "conseguirPuntuacionTotal: "+puntuacion);
+        Log.d("3", "conseguirPuntuacionTotal: "+puntuacion);
         puntuacion += calcularPuntuacionPregunta(datos, context, R.string.pregunta4id, PreguntaCuatroActivity.class);
-        Log.d("ERROR", "conseguirPuntuacionTotal: "+puntuacion);
+        Log.d("4", "conseguirPuntuacionTotal: "+puntuacion);
         puntuacion += calcularPuntuacionPreguntaMultiSeleccion(datos, context, R.string.pregunta5id, PreguntaCincoActivity.class);
-        Log.d("ERROR", "conseguirPuntuacionTotal: "+puntuacion);
+        Log.d("5", "conseguirPuntuacionTotal: "+puntuacion);
         return puntuacion;
     }
 
-    private float calcularPuntuacionPregunta(Bundle datos, Context context, int preguntaId , Class<? extends Pregunta> preguntaClass) {
+    protected float calcularPuntuacionPregunta(Bundle datos, Context context, int preguntaId , Class<? extends Pregunta> preguntaClass) {
+
         CharSequence[] respuestas = datos.getCharSequenceArray(obtenerValorDeString(context, preguntaId));
 
-        if (respuestas != null && Arrays.stream(respuestas).allMatch(elemento -> elemento.equals(respuestas[PREGUNTA_CORRECTA]))) {
+        if (respuestas != null && respuestas[PREGUNTA_USUARIO]!=null && Arrays.stream(respuestas).allMatch(elemento -> elemento.equals(respuestas[PREGUNTA_CORRECTA]))) {
             return obtenerPuntuacionPregunta(preguntaClass);
         }
 
         return 0f;
     }
 
-    private float calcularPuntuacionPreguntaMultiSeleccion(Bundle datos, Context context, int preguntaId, Class<?extends Pregunta> preguntaClass) {
+    protected float calcularPuntuacionPreguntaMultiSeleccion(Bundle datos, Context context, int preguntaId, Class<?extends Pregunta> preguntaClass) {
 
         CharSequence[] respuestas = datos.getCharSequenceArray(obtenerValorDeString(context, preguntaId));
 
-        if (respuestas != null) {
+        if (respuestas != null && respuestas[PREGUNTA_USUARIO] != null) {
             float puntuacionPregunta = obtenerPuntuacionPregunta(preguntaClass);
             float puntuacionACalcular = 0;
 
@@ -219,6 +227,9 @@ public class PreguntasManager {
         if (respuestas[PREGUNTA_USUARIO] != null) {
             String[] respuestasUsuario = respuestas[PREGUNTA_USUARIO].toString().split(";");
             String[] respuestasCorrectas = respuestas[PREGUNTA_CORRECTA].toString().split(";");
+
+            Log.d("ERROR", "respuesta5: "+ Arrays.toString(respuestasUsuario));
+
 
             for (String usuario : respuestasUsuario) {
                 int correcto = 0;
@@ -243,7 +254,7 @@ public class PreguntasManager {
 
         return puntuacionACalcular;
     }
-    public static String obtenerValorDeString(Context contexto, int resourceId) {
+    protected static String obtenerValorDeString(Context contexto, int resourceId) {
         try {
             Resources resources = contexto.getResources();
             return resources.getString(resourceId);
@@ -253,7 +264,7 @@ public class PreguntasManager {
         }
     }
 
-    public CharSequence[] obtenerDatosPregunta(Bundle datos,Context context,int preguntaId,Class<?extends Pregunta> preguntaClass){
+    protected CharSequence[] obtenerDatosPregunta(Bundle datos,Context context,int preguntaId,int preguntaEnunciado){
 
         if (datos==null)return null;
 
@@ -263,7 +274,7 @@ public class PreguntasManager {
 
         CharSequence[]dataPregunta=Arrays.copyOf(temp,3);
 
-        String enunciado = obtenerValorDeString(context,preguntaId);
+        String enunciado = obtenerValorDeString(context,preguntaEnunciado);
 
         if (enunciado==null)
             enunciado="PREGUNTA";

@@ -56,7 +56,7 @@ public class PreguntaCincoActivity extends AppCompatActivity implements Pregunta
     @Override
     public String respuestaCorrecta() {
 
-        return findViewById(R.id.chipCorrecto).getTag().toString()+";"+findViewById(R.id.chipCorrecto1).getTag().toString()+";";
+        return findViewById(R.id.chipCorrecto).getTag().toString()+";"+findViewById(R.id.chipCorrecto1).getTag().toString();
     }
 
     @Override
@@ -71,6 +71,7 @@ public class PreguntaCincoActivity extends AppCompatActivity implements Pregunta
             data.append(findViewById(temp).getTag().toString());
             data.append(";");
         }
+        data.deleteCharAt(data.length()-1);
         return data.toString();
 
     }

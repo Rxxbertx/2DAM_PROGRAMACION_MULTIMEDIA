@@ -2,15 +2,12 @@ package com.rsoftware.practica6;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.chip.ChipGroup;
 import com.rsoftware.practica6.interfaces.Pregunta;
-
-import java.util.Arrays;
 
 public class PreguntaUnoActivity extends AppCompatActivity implements Pregunta {
 
@@ -41,17 +38,6 @@ public class PreguntaUnoActivity extends AppCompatActivity implements Pregunta {
 
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         intent.putExtras(actualizarBundle());
-
-        Log.d("ERROR", Arrays.toString((intent.getExtras().getCharSequenceArray(getString(R.string.pregunta1id)))));
-
-
-        Log.d("ERROR", Arrays.toString((intent.getExtras().getCharSequenceArray(getString(R.string.pregunta2id)))));
-        Log.d("ERROR", Arrays.toString((intent.getExtras().getCharSequenceArray(getString(R.string.pregunta3id)))));
-        Log.d("ERROR", Arrays.toString((intent.getExtras().getCharSequenceArray(getString(R.string.pregunta4id)))));
-        Log.d("ERROR", Arrays.toString((intent.getExtras().getCharSequenceArray(getString(R.string.pregunta5id)))));
-
-
-
         startActivity(intent);
     }
 
