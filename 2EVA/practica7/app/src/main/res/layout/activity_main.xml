@@ -50,7 +50,7 @@
                     android:textSize="24sp" />
 
                 <RatingBar
-                    android:id="@+id/ratingBarCars"
+                    android:id="@+id/rbtagCars"
                     style="@style/CustomRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                     android:textSize="24sp" />
 
                 <RatingBar
-                    android:id="@+id/ratingBarWater"
+                    android:id="@+id/rbtagShape"
                     style="@style/CustomRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                     android:textSize="24sp" />
 
                 <RatingBar
-                    android:id="@+id/ratingBarWhiplash"
+                    android:id="@+id/rbtagWhiplash"
                     style="@style/CustomRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                     android:textSize="24sp" />
 
                 <RatingBar
-                    android:id="@+id/ratingBarParasite"
+                    android:id="@+id/rbtagParasite"
                     style="@style/CustomRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,14 +59,25 @@ public class MainActivity extends AppCompatActivity {
                                     }else if ("titulo".equals(nombreTag)) {
                                         parser.next();
                                         titulo = parser.getText();
+                                    }else if ("director".equals(nombreTag)) {
+                                        parser.next();
+                                        director = parser.getText();
                                     }
                                 }
                             }
 
-                            Toast.makeText(this, anio+sinopsis+titulo, Toast.LENGTH_SHORT).show();
 
-                            //crearActividad(actor,sinopsis,anio,director);
+                            int rb = getResources().getIdentifier("rb"+tag, "id", getPackageName());
+                            if (rb!= View.NO_ID) {
 
+
+                                RatingBar rating = findViewById(rb);
+                                rating.getRating();
+
+                                Pelicula temp = new Pelicula(view.getId(),titulo, anio, actor, director, sinopsis, rating.getRating());
+
+                                crearActividad(temp);
+                            }
 
                         }
                     }
@@ -76,21 +88,19 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if (!ENCONTRADO) Toast.makeText(this, "Error al cargar información de la película", Toast.LENGTH_SHORT).show();
+        if (!ENCONTRADO) Toast.makeText(this, R.string.error_al_cargar_pelicula, Toast.LENGTH_SHORT).show();
 
 
     }
 
-    private void crearActividad(String actor, String sinopsis, String anio, String director) {
+    private void crearActividad(Pelicula temp) {
 
-        Intent intent = new Intent(this,DatosPeliculaActivity.class);
-        intent.putExtra("actor",actor);
-        intent.putExtra("director",director);
-        intent.putExtra("sinopsis",sinopsis);
-        intent.putExtra("anio",anio);
+
+        Intent intent = new Intent(this, DatosPeliculaActivity.class);
+
+        intent.putExtra("pelicula",temp);
 
         startActivity(intent);
-
 
 
     }
