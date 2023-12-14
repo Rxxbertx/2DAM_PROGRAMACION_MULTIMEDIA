@@ -34,8 +34,10 @@
                     android:id="@+id/imageViewCars"
                     android:layout_width="wrap_content"
                     android:layout_height="173dp"
+                    android:contentDescription="@string/cars"
+                    android:onClick="peliculasClickListener"
                     app:srcCompat="@drawable/cars"
-                    android:contentDescription="@string/cars" />
+                    android:tag="@string/tagcars"/>
 
                 <TextView
                     android:id="@+id/textViewTituloCars"
@@ -52,7 +54,7 @@
                     style="@style/CustomRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:isIndicator="false"
+                    android:isIndicator="true"
                     android:max="5"
                     android:numStars="5"
                     android:progress="1"
@@ -73,6 +75,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="173dp"
                     app:srcCompat="@drawable/water"
+                    android:onClick="peliculasClickListener"
+                    android:tag="@string/tagshape"
                     android:contentDescription="@string/shape_of_water" />
 
                 <TextView
@@ -87,10 +91,10 @@
 
                 <RatingBar
                     android:id="@+id/ratingBarWater"
-                    android:layout_width="wrap_content"
                     style="@style/CustomRatingBar"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:isIndicator="false"
+                    android:isIndicator="true"
                     android:max="5"
                     android:numStars="5"
                     android:progress="1"
@@ -110,6 +114,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="173dp"
                     app:srcCompat="@drawable/whiplash"
+                    android:tag="@string/tagwhiplash"
+                    android:onClick="peliculasClickListener"
                     android:contentDescription="@string/whiplash" />
 
                 <TextView
@@ -127,7 +133,7 @@
                     style="@style/CustomRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:isIndicator="false"
+                    android:isIndicator="true"
                     android:max="5"
                     android:numStars="5"
                     android:progress="1"
@@ -145,8 +151,10 @@
                 <ImageView
                     android:id="@+id/imageViewParasite"
                     android:layout_width="wrap_content"
+                    android:tag="@string/tagparasite"
                     android:layout_height="173dp"
                     app:srcCompat="@drawable/parasite"
+                    android:onClick="peliculasClickListener"
                     android:contentDescription="@string/parasite" />
 
                 <TextView
@@ -155,6 +163,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/aldrich"
                     android:text="@string/parasite"
+                    android:tag="@string/tagparasite"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp" />
@@ -164,7 +173,7 @@
                     style="@style/CustomRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:isIndicator="false"
+                    android:isIndicator="true"
                     android:max="5"
                     android:numStars="5"
                     android:progress="1"

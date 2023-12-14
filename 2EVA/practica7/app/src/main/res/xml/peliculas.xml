@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<peliculas xmlns:android="http://schemas.android.com/apk/res/android">
+
+<pelicula id="tagCars">
+        <titulo>CARS</titulo>
+        <anio>2006</anio>
+        <director>John Lasseter, Joe Ranft</director>
+        <actor>Owen Wilson, Bonnie Hunt, Paul Newman</actor>
+        <sinopsis>Rayo McQueen, una máquina de carreras novata y egoísta, descubre la importancia de la amistad y la humildad cuando se encuentra atrapado en Radiator Springs.</sinopsis>
+    </pelicula>
+
+    <pelicula id="tagParasite">
+        <titulo>PARASITE</titulo>
+        <anio>2019</anio>
+        <director>Bong Joon-ho</director>
+        <actor>Kang-ho Song, Sun-kyun Lee, Yeo-jeong Jo</actor>
+        <sinopsis>Una familia desempleada astuta y sin escrúpulos, los Kim, se infiltra en la vida de la adinerada y glamorosa familia Park, entrelazando destinos que llevan a consecuencias inesperadas.</sinopsis>
+    </pelicula>
+
+    <pelicula id="tagWhiplash">
+        <titulo>WHIPLASH</titulo>
+        <anio>2014</anio>
+        <director>Damien Chazelle</director>
+        <actor>Miles Teller, J.K. Simmons, Paul Reiser</actor>
+        <sinopsis>Un joven baterista talentoso se encuentra bajo la tutela de un maestro exigente y perfeccionista que lo impulsa a los límites de sus habilidades y su cordura.</sinopsis>
+    </pelicula>
+
+    <pelicula id="tagShape">
+        <titulo>THE SHAPE OF WATER</titulo>
+        <anio>2017</anio>
+        <director>Guillermo del Toro</director>
+        <actor>Sally Hawkins, Michael Shannon, Octavia Spencer</actor>
+        <sinopsis>En la Guerra Fría, una mujer muda trabaja en un laboratorio de alta seguridad y forma un vínculo único con una criatura acuática cautiva.</sinopsis>
+    </pelicula>
+</peliculas>
+
