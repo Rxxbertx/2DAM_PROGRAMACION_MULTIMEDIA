@@ -11,11 +11,11 @@ public class Pelicula implements Serializable {
     private final String director;
     private final String sinopsis;
     private float valoracion;
-    private final int idFoto;
+    private int foto;
 
 
-    public int getIdFoto() {
-        return idFoto;
+    public int getFoto() {
+        return foto;
     }
 
     public String getTitulo() {
@@ -47,8 +47,8 @@ public class Pelicula implements Serializable {
 
 
 
-    public Pelicula(int fotoId,String titulo, String anio, String actor, String director, String sinopsis,float valoracion){
-        this.idFoto=fotoId;
+    public Pelicula(int foto, String titulo, String anio, String actor, String director, String sinopsis, float valoracion){
+        this.foto=foto;
         this.titulo = titulo;
         this.anio = anio;
         this.actor = actor;
