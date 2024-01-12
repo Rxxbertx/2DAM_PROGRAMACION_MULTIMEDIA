@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.rsoftware.practica7.model.Pelicula;
+
 public class PeliculaFragment extends Fragment implements View.OnClickListener {
 
     private Pelicula pelicula;
@@ -54,10 +56,10 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
             View otroLayout = getLayoutInflater().inflate(R.layout.activity_main, null);
 
 // Obtener la referencia al ImageView en el otro layout
-            ImageView imageViewEnOtroLayout = otroLayout.findViewById(pelicula.getFoto());
+            //ImageView imageViewEnOtroLayout = otroLayout.findViewById(pelicula.getFoto());
 
 
-            img.setImageDrawable(imageViewEnOtroLayout.getDrawable());
+            //img.setImageDrawable(imageViewEnOtroLayout.getDrawable());
 
 
             boton.setOnClickListener(this);

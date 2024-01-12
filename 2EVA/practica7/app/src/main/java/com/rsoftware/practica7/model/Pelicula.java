@@ -1,4 +1,4 @@
-package com.rsoftware.practica7;
+package com.rsoftware.practica7.model;
 
 import java.io.Serializable;
 
@@ -11,10 +11,19 @@ public class Pelicula implements Serializable {
     private final String director;
     private final String sinopsis;
     private float valoracion;
-    private int foto;
+    private final String foto;
+
+    private boolean valorada=false;
 
 
-    public int getFoto() {
+    public boolean isValorada() {
+        return valorada;
+    }
+
+    public void setValorada(boolean valorada) {
+        this.valorada = valorada;
+    }
+    public String getFoto() {
         return foto;
     }
 
@@ -47,7 +56,7 @@ public class Pelicula implements Serializable {
 
 
 
-    public Pelicula(int foto, String titulo, String anio, String actor, String director, String sinopsis, float valoracion){
+    public Pelicula(String foto, String titulo, String anio, String actor, String director, String sinopsis, float valoracion){
         this.foto=foto;
         this.titulo = titulo;
         this.anio = anio;

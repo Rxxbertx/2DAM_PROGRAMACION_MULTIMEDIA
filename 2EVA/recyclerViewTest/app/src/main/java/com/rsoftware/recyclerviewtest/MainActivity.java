@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
         recycler.setAdapter(new PilotoAdapter(pilotos));
         recycler.setLayoutManager(new LinearLayoutManager(this));
-        recycler.setHasFixedSize(true);
+
+        recycler.setOnClickListener(v -> {
+
+            Toast.makeText(this, "Se ha añadido un piloto", Toast.LENGTH_SHORT).show();
+
+        });
+
 
 
     }

@@ -11,13 +11,21 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.rsoftware.practica7.model.Pelicula;
+import com.rsoftware.practica7.model.PeliculaCollection;
+import com.rsoftware.practica7.recycler.RecyclerViewPeliculas;
 
 import org.xmlpull.v1.XmlPullParser;
 
 public class MainActivity extends AppCompatActivity implements PeliculaFragment.OnDatosEnviadosListener {
 
-    RatingBar rating;
-    protected static Context context;
+
+    public static Context context;
+
+    private PeliculaCollection peliculaCollection;
 
     View fragment;
     private boolean salidaFragment = true;
@@ -28,81 +36,86 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
         setContentView(R.layout.activity_main);
         context = this;
         Log.d("BOOLEAN SALIDA CREATE", String.valueOf(salidaFragment));
+        peliculaCollection = new PeliculaCollection();
+        cargarPeliculas();
+        mostrarPeliculas();
 
     }
 
-    public void peliculasClickListener(View view) {
+    private void mostrarPeliculas() {
 
 
-        boolean ENCONTRADO = false;
+        RecyclerView recycler =  findViewById(R.id.recycler);
 
-        String tag = (String) view.getTag();
+        RecyclerViewPeliculas adapter = new RecyclerViewPeliculas(peliculaCollection);
 
-        if (tag != null) {
+        recycler.setAdapter(adapter);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
+        recycler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-            try {
-                XmlResourceParser parser = getResources().getXml(R.xml.peliculas);
+                verDetallesPelicula(peliculaCollection.getPelicula(recycler.getChildAdapterPosition(v)));
 
-                while (parser.next() != XmlPullParser.END_DOCUMENT) {
-                    if (parser.getEventType() == XmlPullParser.START_TAG && "pelicula".equals(parser.getName())) {
-                        String id = parser.getAttributeValue(null, "id");
+            }
+        });
 
-                        // Verificar si el id es el que estás buscando
-                        if (tag.equals(id)) {
 
-                            ENCONTRADO = true;
 
-                            String titulo = null, actor = null, sinopsis = null, anio = null, director = null;
 
-                            while (parser.next() != XmlPullParser.END_DOCUMENT && !(parser.getEventType() == XmlPullParser.END_TAG && "pelicula".equals(parser.getName()))) {
-                                if (parser.getEventType() == XmlPullParser.START_TAG) {
+    }
 
-                                    String nombreTag = parser.getName();
+    private void cargarPeliculas() {
 
-                                    if ("anio".equals(nombreTag)) {
-                                        parser.next();
-                                        anio = parser.getText();
-                                    } else if ("actor".equals(nombreTag)) {
-                                        parser.next();
-                                        actor = parser.getText();
-                                    } else if ("sinopsis".equals(nombreTag)) {
-                                        parser.next();
-                                        sinopsis = parser.getText();
-                                    } else if ("titulo".equals(nombreTag)) {
-                                        parser.next();
-                                        titulo = parser.getText();
-                                    } else if ("director".equals(nombreTag)) {
-                                        parser.next();
-                                        director = parser.getText();
-                                    }
-                                }
+        try {
+            XmlResourceParser parser = getResources().getXml(R.xml.peliculas);
+
+            while (parser.next() != XmlPullParser.END_DOCUMENT) {
+                if (parser.getEventType() == XmlPullParser.START_TAG && "pelicula".equals(parser.getName())) {
+                    String id = parser.getAttributeValue(null, "id");
+
+                    String titulo = null, actor = null, sinopsis = null, anio = null, director = null, foto = null;
+                    float rating = 0;
+
+                    while (parser.next() != XmlPullParser.END_DOCUMENT && !(parser.getEventType() == XmlPullParser.END_TAG && "pelicula".equals(parser.getName()))) {
+                        if (parser.getEventType() == XmlPullParser.START_TAG) {
+
+                            String nombreTag = parser.getName();
+
+                            if ("anio".equals(nombreTag)) {
+                                parser.next();
+                                anio = parser.getText();
+                            } else if ("actor".equals(nombreTag)) {
+                                parser.next();
+                                actor = parser.getText();
+                            } else if ("sinopsis".equals(nombreTag)) {
+                                parser.next();
+                                sinopsis = parser.getText();
+                            } else if ("titulo".equals(nombreTag)) {
+                                parser.next();
+                                titulo = parser.getText();
+                            } else if ("director".equals(nombreTag)) {
+                                parser.next();
+                                director = parser.getText();
+                            } else if ("img".equals(nombreTag)) {
+                                parser.next();
+                                foto = parser.getAttributeValue(null, "src");
+                            } else if ("rating".equals(nombreTag)) {
+
+                                parser.next();
+                                rating = Float.parseFloat(parser.getText());
                             }
 
-
-                            int rb = getResources().getIdentifier("rb" + tag, "id", getPackageName());
-                            if (rb != View.NO_ID) {
-
-                                rating = findViewById(rb);
-
-
-                                Pelicula temp = new Pelicula(view.getId(), titulo, anio, actor, director, sinopsis, rating.getRating());
-
-                                verDetallesPelicula(temp);
-
-                            }
 
                         }
                     }
+                    peliculaCollection.addPelicula(new Pelicula(foto, titulo, anio, actor, director, sinopsis, rating));
+
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        if (!ENCONTRADO)
-            Toast.makeText(this, R.string.error_al_cargar_pelicula, Toast.LENGTH_SHORT).show();
-
 
     }
 
@@ -127,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        rating = findViewById(savedInstanceState.getInt("idRating"));
+        //rating = findViewById(savedInstanceState.getInt("idRating"));
 
         salidaFragment = savedInstanceState.getBoolean("salidaFragment");
 
@@ -144,12 +157,6 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        if (rating != null) {
-
-            outState.putInt("idRating", rating.getId());
-
-
-        }
 
         outState.putBoolean("salidaFragment", salidaFragment);
         Log.d("BOOLEAN SALIDA SAVE", String.valueOf(salidaFragment));
@@ -175,8 +182,6 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
     @Override
     public void onPuntuacionEnviada(float puntuacion) {
-
-        if (rating != null) rating.setRating(puntuacion);
 
         if (fragment != null) findViewById(R.id.fragmentContainerView).setVisibility(View.GONE);
 

@@ -1,5 +1,8 @@
 package com.rsoftware.recyclerviewtest;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,30 +13,41 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class PilotoAdapter extends RecyclerView.Adapter<PilotoAdapter.Viewholder> {
+public class PilotoAdapter extends RecyclerView.Adapter<PilotoAdapter.VIEW_HOLDER> {
 
 
-    List<PilotoKart> pilotoKarts;
+    private List<PilotoKart> pilotoKarts;
 
-
-    public PilotoAdapter(List<PilotoKart> pilotoKarts) {
+    PilotoAdapter(List<PilotoKart> pilotoKarts) {
         this.pilotoKarts = pilotoKarts;
     }
 
+
     @NonNull
     @Override
-    public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {//aqui se infla la vista pero sin datos
-        return new Viewholder(LayoutInflater.from(parent.getContext()).inflate(R.layout.piloto_lista,parent,false));
+    public PilotoAdapter.VIEW_HOLDER onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new VIEW_HOLDER(LayoutInflater.from(parent.getContext()).inflate(R.layout.piloto_lista, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
-        PilotoKart pilotoKart = pilotoKarts.get(position);
-        holder.nombreTxt.setText(pilotoKart.getNombre());
-        holder.posicionTxt.setText(String.valueOf(pilotoKart.getPosicion()));
+    public void onBindViewHolder(@NonNull PilotoAdapter.VIEW_HOLDER holder, int position) {
+
+
+        holder.nombre.setText(pilotoKarts.get(position).getNombre());
+        holder.posicion.setText(String.valueOf(pilotoKarts.get(position).getPosicion()));
+
+
+
+
+
+        if (position % 2 == 0)
+            holder.itemView.setBackgroundColor(Color.parseColor("#FFFF00"));
+        else
+            holder.itemView.setBackgroundColor(Color.parseColor("#FF0000"));
+
+
 
     }
-
 
     @Override
     public int getItemCount() {
@@ -41,26 +55,18 @@ public class PilotoAdapter extends RecyclerView.Adapter<PilotoAdapter.Viewholder
     }
 
 
+    protected class VIEW_HOLDER extends RecyclerView.ViewHolder {
 
+        TextView nombre;
+        TextView posicion;
 
-
-    //clase donde coges los elementos creado en xml y le decimos que el elemento a del xml es el elemento b del objeto
-    public  class Viewholder extends RecyclerView.ViewHolder {
-
-        public TextView nombreTxt;
-        public TextView posicionTxt;
-
-        public Viewholder(@NonNull View itemView) {
+        public VIEW_HOLDER(@NonNull View itemView) {
             super(itemView);
+            nombre = itemView.findViewById(R.id.textViewNombre);
+            posicion = itemView.findViewById(R.id.textViewPosicion);
 
-            nombreTxt = itemView.findViewById(R.id.textViewNombre);
-            posicionTxt = itemView.findViewById(R.id.textViewPosicion);
 
         }
-
-
-
-
     }
 
 

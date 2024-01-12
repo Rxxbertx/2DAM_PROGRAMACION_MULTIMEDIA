@@ -4,6 +4,8 @@
     <pelicula id="tagCars">
         <titulo>CARS</titulo>
         <anio>2006</anio>
+        <rating>5</rating>
+        <img src="cars" />
         <director>John Lasseter, Joe Ranft</director>
         <actor>Owen Wilson, Bonnie Hunt, Paul Newman</actor>
         <sinopsis>Lightning McQueen, a rookie and selfish race car, discovers the importance of friendship and humility when he gets stuck in Radiator Springs.</sinopsis>
@@ -12,6 +14,8 @@
     <pelicula id="tagParasite">
         <titulo>PARASITE</titulo>
         <anio>2019</anio>
+        <rating>5</rating>
+        <img src="parasite" />
         <director>Bong Joon-ho</director>
         <actor>Kang-ho Song, Sun-kyun Lee, Yeo-jeong Jo</actor>
         <sinopsis>A cunning and unscrupulous unemployed family, the Kims, infiltrates the life of the wealthy and glamorous Park family, intertwining destinies that lead to unexpected consequences.</sinopsis>
@@ -20,6 +24,10 @@
     <pelicula id="tagWhiplash">
         <titulo>WHIPLASH</titulo>
         <anio>2014</anio>
+
+        <rating>4</rating>
+        <img src="whiplash" />
+
         <director>Damien Chazelle</director>
         <actor>Miles Teller, J.K. Simmons, Paul Reiser</actor>
         <sinopsis>A talented young drummer is under the tutelage of a demanding and perfectionist teacher who pushes him to the limits of his abilities and sanity.</sinopsis>
@@ -28,6 +36,8 @@
     <pelicula id="tagShape">
         <titulo>THE SHAPE OF WATER</titulo>
         <anio>2017</anio>
+        <rating>3</rating>
+        <img src="water"/>
         <director>Guillermo del Toro</director>
         <actor>Sally Hawkins, Michael Shannon, Octavia Spencer</actor>
         <sinopsis>In the Cold War era, a mute woman works in a high-security laboratory and forms a unique bond with a captive aquatic creature.</sinopsis>
