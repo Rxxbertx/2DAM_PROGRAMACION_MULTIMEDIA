@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.rsoftware.practica7"
+    namespace = "com.rsoftware.practica8"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.rsoftware.practica7"
+        applicationId = "com.rsoftware.practica8"
         minSdk = 31
         targetSdk = 34
         versionCode = 1

@@ -1,12 +1,12 @@
-package com.rsoftware.practica7;
+package com.rsoftware.practica8;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.RatingBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,30 +14,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rsoftware.practica7.model.Pelicula;
-import com.rsoftware.practica7.model.PeliculaCollection;
-import com.rsoftware.practica7.recycler.RecyclerViewPeliculas;
+import com.rsoftware.practica8.model.Pelicula;
+import com.rsoftware.practica8.model.PeliculaCollection;
+import com.rsoftware.practica8.recycler.RecyclerViewPeliculas;
 
 import org.xmlpull.v1.XmlPullParser;
 
-public class MainActivity extends AppCompatActivity implements PeliculaFragment.OnDatosEnviadosListener {
+public class MainActivity extends AppCompatActivity implements PeliculaFragment.OnDatosEnviadosListener, RecyclerViewPeliculas.OnClickListenerRecyclerView {
 
 
     public static Context context;
-
     private PeliculaCollection peliculaCollection;
-
     View fragment;
     private boolean salidaFragment = true;
+    RecyclerView recycler;
+
+    private static boolean appStarted = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setSupportActionBar(findViewById(R.id.materialToolbar));
         context = this;
-        Log.d("BOOLEAN SALIDA CREATE", String.valueOf(salidaFragment));
         peliculaCollection = new PeliculaCollection();
+
+        if (!appStarted)
+        {
         cargarPeliculas();
+        appStarted=true;
+        }
         mostrarPeliculas();
 
     }
@@ -45,27 +52,21 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
     private void mostrarPeliculas() {
 
 
-        RecyclerView recycler =  findViewById(R.id.recycler);
+        recycler =  findViewById(R.id.recycler);
 
-        RecyclerViewPeliculas adapter = new RecyclerViewPeliculas(peliculaCollection);
+        RecyclerViewPeliculas adapter = new RecyclerViewPeliculas(peliculaCollection,this);
 
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
-        recycler.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                verDetallesPelicula(peliculaCollection.getPelicula(recycler.getChildAdapterPosition(v)));
-
-            }
-        });
-
-
 
 
     }
 
     private void cargarPeliculas() {
+
+
+
+
 
         try {
             XmlResourceParser parser = getResources().getXml(R.xml.peliculas);
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
                                 director = parser.getText();
                             } else if ("img".equals(nombreTag)) {
                                 parser.next();
-                                foto = parser.getAttributeValue(null, "src");
+                                foto = parser.getText();
                             } else if ("rating".equals(nombreTag)) {
 
                                 parser.next();
@@ -119,9 +120,11 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
     }
 
-    private void verDetallesPelicula(Pelicula temp) {
+    @Override
+    public void verDetallesPelicula(int positionAdapter) {
 
-        getIntent().putExtra("pelicula", temp);
+
+        getIntent().putExtra("positionAdapter",positionAdapter);
 
         salidaFragment = false;
 
@@ -130,8 +133,10 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, PeliculaFragment.class, getIntent().getExtras()).commit();
             fragment.setVisibility(View.VISIBLE);
 
+
+
         } else {
-            crearActividad((Pelicula) getIntent().getSerializableExtra("pelicula"));
+            crearActividad();
         }
 
     }
@@ -140,15 +145,11 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        //rating = findViewById(savedInstanceState.getInt("idRating"));
-
         salidaFragment = savedInstanceState.getBoolean("salidaFragment");
-
-        Log.d("BOOLEAN SALIDA RESTORE", String.valueOf(salidaFragment));
 
         if (!salidaFragment) {
 
-            verDetallesPelicula((Pelicula) getIntent().getSerializableExtra("pelicula"));
+            verDetallesPelicula(getIntent().getIntExtra("positionAdapter",0));
         }
 
     }
@@ -159,7 +160,16 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
 
         outState.putBoolean("salidaFragment", salidaFragment);
-        Log.d("BOOLEAN SALIDA SAVE", String.valueOf(salidaFragment));
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menuapp,menu);
+
+        return true;
     }
 
     private boolean comprobarFragment() {
@@ -167,27 +177,51 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
         return (fragment = findViewById(R.id.fragmentContainerView)) != null;
     }
 
-    private void crearActividad(Pelicula temp) {
+    private void crearActividad() {
 
 
         Intent intent = new Intent(this, DatosPeliculaActivity.class);
-
-        intent.putExtra("pelicula", temp);
-
+        intent.putExtras(getIntent());
         startActivity(intent);
 
 
     }
 
 
+
+
     @Override
-    public void onPuntuacionEnviada(float puntuacion) {
+    public void onPuntuacionEnviada(int positionAdapter) {
 
-        if (fragment != null) findViewById(R.id.fragmentContainerView).setVisibility(View.GONE);
 
-        salidaFragment = true;
-
+         recycler.getAdapter().notifyItemChanged(positionAdapter);
 
     }
 
+    @Override
+    public void onFinishCommunication() {
+
+        if (fragment != null) findViewById(R.id.fragmentContainerView).setVisibility(View.GONE);
+        salidaFragment = true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        mostrarPeliculasValoradas();
+
+        return true;
+    }
+
+    public void mostrarPeliculasValoradas() {
+
+
+        if (comprobarFragment())fragment.setVisibility(View.GONE);
+        peliculaCollection.setPeliculas(peliculaCollection.getPeliculasVistas());
+        recycler.getAdapter().notifyDataSetChanged();
+        Toast.makeText(this, getString(R.string.peliculas_actualizadas_correctamente),Toast.LENGTH_LONG).show();
+
+
+    }
 }

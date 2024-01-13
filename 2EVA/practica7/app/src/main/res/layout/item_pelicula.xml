@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -24,7 +25,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/aldrich"
-            android:text="@string/cars"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="24sp" />

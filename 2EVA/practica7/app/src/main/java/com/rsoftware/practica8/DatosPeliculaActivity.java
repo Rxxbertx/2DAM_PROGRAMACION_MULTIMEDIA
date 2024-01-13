@@ -1,4 +1,4 @@
-package com.rsoftware.practica7;
+package com.rsoftware.practica8;
 
 import android.os.Bundle;
 
@@ -13,9 +13,7 @@ public class DatosPeliculaActivity extends AppCompatActivity implements  Pelicul
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos_pelicula);
-
-
-       initFragment();
+        initFragment();
 
     }
 
@@ -23,6 +21,7 @@ public class DatosPeliculaActivity extends AppCompatActivity implements  Pelicul
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+
 
         finish();
 
@@ -47,12 +46,20 @@ public class DatosPeliculaActivity extends AppCompatActivity implements  Pelicul
 
 
     @Override
-    public void onPuntuacionEnviada(float puntuacion) {
+    public void onPuntuacionEnviada(int positionAdapter) {
 
         if (MainActivity.context instanceof PeliculaFragment.OnDatosEnviadosListener)
-            ((PeliculaFragment.OnDatosEnviadosListener)MainActivity.context).onPuntuacionEnviada(puntuacion);
-        finish();
+            ((PeliculaFragment.OnDatosEnviadosListener)MainActivity.context).onPuntuacionEnviada(positionAdapter);
 
+    }
+
+    @Override
+    public void onFinishCommunication() {
+
+        if (MainActivity.context instanceof PeliculaFragment.OnDatosEnviadosListener)
+            ((PeliculaFragment.OnDatosEnviadosListener)MainActivity.context).onFinishCommunication();
+
+         finish();
     }
 
 }

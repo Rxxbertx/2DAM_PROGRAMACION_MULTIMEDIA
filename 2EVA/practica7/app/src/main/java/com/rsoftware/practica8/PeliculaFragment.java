@@ -1,4 +1,4 @@
-package com.rsoftware.practica7;
+package com.rsoftware.practica8;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,7 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.rsoftware.practica7.model.Pelicula;
+import com.rsoftware.practica8.model.Pelicula;
+import com.rsoftware.practica8.model.PeliculaCollection;
 
 public class PeliculaFragment extends Fragment implements View.OnClickListener {
 
@@ -27,6 +28,7 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
     private RatingBar puntuacion;
 
     private Button boton;
+    private int positionAdapter;
 
     public PeliculaFragment() {
         // Constructor vacío no es necesario
@@ -35,8 +37,16 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
-            pelicula = (Pelicula) getArguments().getSerializable("pelicula");
+
+            PeliculaCollection temp = new PeliculaCollection();
+
+
+            positionAdapter = getArguments().getInt("positionAdapter");
+            pelicula = temp.getPelicula(positionAdapter);
+
+
         }
 
 
@@ -51,17 +61,7 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
             puntuacion.setRating(pelicula.getValoracion());
             director.setText(pelicula.getDirector());
             sinopsis.setText(pelicula.getSinopsis());
-
-
-            View otroLayout = getLayoutInflater().inflate(R.layout.activity_main, null);
-
-// Obtener la referencia al ImageView en el otro layout
-            //ImageView imageViewEnOtroLayout = otroLayout.findViewById(pelicula.getFoto());
-
-
-            //img.setImageDrawable(imageViewEnOtroLayout.getDrawable());
-
-
+            img.setImageResource(getResources().getIdentifier(pelicula.getFoto(),"drawable", getContext().getPackageName()));
             boton.setOnClickListener(this);
 
         }
@@ -96,21 +96,35 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
         sinopsis = view.findViewById(R.id.textViewSinopsis);
         boton=view.findViewById(R.id.elevatedButton);
         cargarDatos(); // Llama a cargarDatos() aquí si deseas que los datos se carguen automáticamente al crear el fragmento.
+        crearListener(puntuacion);
+
         return view;
     }
 
+    private void crearListener(RatingBar puntuacion) {
+
+        puntuacion.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
+
+            if (fromUser) pelicula.setValoracion(rating);
+            listener.onPuntuacionEnviada(positionAdapter);
+
+
+        });
+
+    }
+
     @Override
-    public void onClick(View view) {
+    public void onClick(View v) {
 
-        listener.onPuntuacionEnviada(puntuacion.getRating());
-
+    listener.onFinishCommunication();
 
     }
 
 
     // Interfaz para comunicarse con la actividad
     public interface OnDatosEnviadosListener {
-        void onPuntuacionEnviada(float puntuacion);
+        void onPuntuacionEnviada(int positionAdapter);
+        void onFinishCommunication();
     }
 
     private OnDatosEnviadosListener listener;

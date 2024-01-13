@@ -1,13 +1,11 @@
 <resources>
-    <string name="app_name" translatable="false">practica7</string>
+    <string name="app_name" translatable="false">PRACTICA 8</string>
     <string name="pelis_top">PELIS TOP</string>
-    <string name="cars" translatable="false">CARS</string>
-    <string name="parasite">PARASITO</string>
-    <string name="whiplash" translatable="false">WHIPLASH</string>
-    <string name="shape_of_water">LA FORMA DEL AGUA</string>
     <string name="error_al_cargar_pelicula">Error al cargar información de la película</string>
     <string name="directores">DIRECTORES</string>
     <string name="actores">ACTORES</string>
     <string name="sinopsis">SINOPSIS</string>
     <string name="volver">Volver</string>
+    <string name="mostrar_peliculas_vistas">MOSTRAR PELICULAS VALORADAS</string>
+    <string name="peliculas_actualizadas_correctamente">PELICULAS ACTUALIZADAS CORRECTAMENTE</string>
 </resources>

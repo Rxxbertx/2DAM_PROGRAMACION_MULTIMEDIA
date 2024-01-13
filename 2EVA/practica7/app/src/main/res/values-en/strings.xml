@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pelis_top">TOP FILMS</string>
-    <string name="parasite">PARASITE</string>
-    <string name="shape_of_water">THE SHAPE OF WATER</string>
     <string name="error_al_cargar_pelicula">Failed to load film information</string>
     <string name="directores">DIRECTORS</string>
     <string name="actores">ACTORS</string>
     <string name="sinopsis">SYNOPSIS</string>
     <string name="volver">Back</string>
+    <string name="mostrar_peliculas_vistas">SHOW ONLY RATED FILMS</string>
+    <string name="peliculas_actualizadas_correctamente">FILMS UPDATED SUCCESFULLY</string>
 </resources>

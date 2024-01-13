@@ -1,31 +1,36 @@
-package com.rsoftware.practica7.recycler;
+package com.rsoftware.practica8.recycler;
 
 import android.content.Context;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rsoftware.practica7.R;
-import com.rsoftware.practica7.model.PeliculaCollection;
+import com.rsoftware.practica8.MainActivity;
+import com.rsoftware.practica8.R;
+import com.rsoftware.practica8.model.PeliculaCollection;
 
 
 
 public class RecyclerViewPeliculas extends RecyclerView.Adapter<RecyclerViewPeliculas.PeliculaViewHolder>{
 
 
-    private PeliculaCollection peliculaCollection;
+    private final PeliculaCollection peliculaCollection;
+    private OnClickListenerRecyclerView onClickListenerRecyclerView;
 
-    public RecyclerViewPeliculas(PeliculaCollection peliculaCollection) {
+    public RecyclerViewPeliculas(PeliculaCollection peliculaCollection, Context parent) {
 
 
         this.peliculaCollection = peliculaCollection;
+
+        if (parent instanceof OnClickListenerRecyclerView)
+            onClickListenerRecyclerView = (MainActivity)parent;
 
 
     }
@@ -42,13 +47,21 @@ public class RecyclerViewPeliculas extends RecyclerView.Adapter<RecyclerViewPeli
 
 
         // Obtener el ID del recurso drawable
-        int resourceId = holder.context.getResources().getIdentifier("cars","drawable", holder.context.getPackageName());
+        int resourceId = holder.context.getResources().getIdentifier(peliculaCollection.getPelicula(position).getFoto(),"drawable", holder.context.getPackageName());
 
 
         holder.titulo.setText(peliculaCollection.getPelicula(position).getTitulo());
         holder.foto.setImageResource(resourceId);
         holder.ratingBar.setRating(peliculaCollection.getPelicula(position).getValoracion());
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+                    onClickListenerRecyclerView.verDetallesPelicula(holder.getAdapterPosition());
+
+            }
+        });
 
 
     }
@@ -58,15 +71,16 @@ public class RecyclerViewPeliculas extends RecyclerView.Adapter<RecyclerViewPeli
         return peliculaCollection.size();
     }
 
-    public class PeliculaViewHolder extends RecyclerView.ViewHolder {
+    public static class PeliculaViewHolder extends RecyclerView.ViewHolder {
 
 
-        private TextView titulo;
-        private ImageView foto;
+        private final TextView titulo;
+        private final ImageView foto;
 
-        private RatingBar ratingBar;
+        private final RatingBar ratingBar;
 
-        private Context context;
+        private final LinearLayout layout;
+        private final Context context;
 
         public PeliculaViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,11 +89,22 @@ public class RecyclerViewPeliculas extends RecyclerView.Adapter<RecyclerViewPeli
             foto = itemView.findViewById(R.id.img);
             ratingBar = itemView.findViewById(R.id.rb);
 
-             context = itemView.getContext();
+            layout=itemView.findViewById(R.id.layout);
+            context = itemView.getContext();
 
 
 
 
         }
+    }
+
+
+    public  interface  OnClickListenerRecyclerView{
+
+
+        void verDetallesPelicula(int positionAdapter);
+
+
+
     }
 }

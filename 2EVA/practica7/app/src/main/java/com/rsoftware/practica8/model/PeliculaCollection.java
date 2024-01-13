@@ -1,4 +1,4 @@
-package com.rsoftware.practica7.model;
+package com.rsoftware.practica8.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,20 @@ public class PeliculaCollection {
 
     public List<Pelicula> getPeliculas(){
         return peliculas;
+    }
+    public List<Pelicula> getPeliculasVistas(){
+
+        List<Pelicula>temp = new ArrayList<>();
+
+        for (Pelicula pelicula:
+             peliculas) {
+
+            if (pelicula.getValoracion()>0)
+                temp.add(pelicula);
+
+
+        }
+        return temp;
     }
 
     public void setPeliculas(List<Pelicula> peliculas){

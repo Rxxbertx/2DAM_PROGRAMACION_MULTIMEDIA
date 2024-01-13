@@ -1,4 +1,4 @@
-package com.rsoftware.practica7.model;
+package com.rsoftware.practica8.model;
 
 import java.io.Serializable;
 
