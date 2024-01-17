@@ -10,6 +10,8 @@ public class PeliculaCollection {
 
     public PeliculaCollection(){
 
+
+
     }
 
     public List<Pelicula> getPeliculas(){
@@ -24,7 +26,6 @@ public class PeliculaCollection {
 
             if (pelicula.getValoracion()>0)
                 temp.add(pelicula);
-
 
         }
         return temp;
@@ -44,6 +45,9 @@ public class PeliculaCollection {
 
     public void addPelicula(Pelicula pelicula){
         peliculas.add(pelicula);
+    }
+    public void addPelicula(int index,Pelicula pelicula){
+        peliculas.add(index,pelicula);
     }
 
     public void removePelicula(Pelicula pelicula){

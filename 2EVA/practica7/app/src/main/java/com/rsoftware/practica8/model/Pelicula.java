@@ -1,6 +1,7 @@
 package com.rsoftware.practica8.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Pelicula implements Serializable {
 
@@ -69,7 +70,18 @@ public class Pelicula implements Serializable {
 
 
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Pelicula pelicula = (Pelicula) obj;
+        return Objects.equals(titulo, pelicula.titulo);
+    }
 
+    @Override
+    public int hashCode() {
+        return titulo != null ? titulo.hashCode() : 0;
+    }
 
 
 

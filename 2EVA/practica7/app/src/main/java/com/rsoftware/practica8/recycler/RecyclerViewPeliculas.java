@@ -12,22 +12,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rsoftware.practica8.MainActivity;
 import com.rsoftware.practica8.R;
+import com.rsoftware.practica8.MainActivity;
+import com.rsoftware.practica8.model.Pelicula;
 import com.rsoftware.practica8.model.PeliculaCollection;
 
+import java.util.List;
 
 
 public class RecyclerViewPeliculas extends RecyclerView.Adapter<RecyclerViewPeliculas.PeliculaViewHolder>{
 
 
-    private final PeliculaCollection peliculaCollection;
+    private final List<Pelicula> peliculaCollection;
     private OnClickListenerRecyclerView onClickListenerRecyclerView;
 
-    public RecyclerViewPeliculas(PeliculaCollection peliculaCollection, Context parent) {
+    public RecyclerViewPeliculas(List<Pelicula> pelis, Context parent) {
 
 
-        this.peliculaCollection = peliculaCollection;
+        this.peliculaCollection = pelis;
 
         if (parent instanceof OnClickListenerRecyclerView)
             onClickListenerRecyclerView = (MainActivity)parent;
@@ -47,18 +49,18 @@ public class RecyclerViewPeliculas extends RecyclerView.Adapter<RecyclerViewPeli
 
 
         // Obtener el ID del recurso drawable
-        int resourceId = holder.context.getResources().getIdentifier(peliculaCollection.getPelicula(position).getFoto(),"drawable", holder.context.getPackageName());
+        int resourceId = holder.context.getResources().getIdentifier(peliculaCollection.get(position).getFoto(),"drawable", holder.context.getPackageName());
 
 
-        holder.titulo.setText(peliculaCollection.getPelicula(position).getTitulo());
+        holder.titulo.setText(peliculaCollection.get(position).getTitulo());
         holder.foto.setImageResource(resourceId);
-        holder.ratingBar.setRating(peliculaCollection.getPelicula(position).getValoracion());
+        holder.ratingBar.setRating(peliculaCollection.get(position).getValoracion());
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                    onClickListenerRecyclerView.verDetallesPelicula(holder.getAdapterPosition());
+                    onClickListenerRecyclerView.verDetallesPelicula(peliculaCollection.get(holder.getAdapterPosition()));
 
             }
         });
@@ -102,7 +104,7 @@ public class RecyclerViewPeliculas extends RecyclerView.Adapter<RecyclerViewPeli
     public  interface  OnClickListenerRecyclerView{
 
 
-        void verDetallesPelicula(int positionAdapter);
+        void verDetallesPelicula(Pelicula positionAdapter);
 
 
 

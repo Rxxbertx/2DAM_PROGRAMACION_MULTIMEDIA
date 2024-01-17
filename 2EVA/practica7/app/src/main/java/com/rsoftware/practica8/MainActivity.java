@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.rsoftware.practica8.R;
 import com.rsoftware.practica8.model.Pelicula;
 import com.rsoftware.practica8.model.PeliculaCollection;
 import com.rsoftware.practica8.recycler.RecyclerViewPeliculas;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
         recycler =  findViewById(R.id.recycler);
 
-        RecyclerViewPeliculas adapter = new RecyclerViewPeliculas(peliculaCollection,this);
+        RecyclerViewPeliculas adapter = new RecyclerViewPeliculas(peliculaCollection.getPeliculas(),this);
 
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -121,10 +122,10 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
     }
 
     @Override
-    public void verDetallesPelicula(int positionAdapter) {
+    public void verDetallesPelicula(Pelicula positionAdapter) {
 
 
-        getIntent().putExtra("positionAdapter",positionAdapter);
+        getIntent().putExtra("pelicula",positionAdapter);
 
         salidaFragment = false;
 
@@ -149,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
         if (!salidaFragment) {
 
-            verDetallesPelicula(getIntent().getIntExtra("positionAdapter",0));
+            verDetallesPelicula((Pelicula) getIntent().getSerializableExtra("pelicula"));
         }
 
     }
@@ -218,8 +219,8 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
 
         if (comprobarFragment())fragment.setVisibility(View.GONE);
-        peliculaCollection.setPeliculas(peliculaCollection.getPeliculasVistas());
-        recycler.getAdapter().notifyDataSetChanged();
+        recycler.setAdapter(new RecyclerViewPeliculas(peliculaCollection.getPeliculasVistas(),this));
+
         Toast.makeText(this, getString(R.string.peliculas_actualizadas_correctamente),Toast.LENGTH_LONG).show();
 
 

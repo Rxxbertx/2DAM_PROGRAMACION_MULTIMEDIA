@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.rsoftware.practica8.R;
+
 public class DatosPeliculaActivity extends AppCompatActivity implements  PeliculaFragment.OnDatosEnviadosListener {
 
 
