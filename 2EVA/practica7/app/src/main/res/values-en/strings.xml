@@ -8,4 +8,5 @@
     <string name="volver">Back</string>
     <string name="mostrar_peliculas_vistas">SHOW ONLY RATED FILMS</string>
     <string name="peliculas_actualizadas_correctamente">FILMS UPDATED SUCCESFULLY</string>
+    <string name="mostrar_todas_las_peliculas">SHOW ALL FILMS</string>
 </resources>

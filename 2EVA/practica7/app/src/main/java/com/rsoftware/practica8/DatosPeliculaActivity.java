@@ -2,10 +2,9 @@ package com.rsoftware.practica8;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.rsoftware.practica8.R;
 
 public class DatosPeliculaActivity extends AppCompatActivity implements  PeliculaFragment.OnDatosEnviadosListener {
 
@@ -16,6 +15,17 @@ public class DatosPeliculaActivity extends AppCompatActivity implements  Pelicul
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos_pelicula);
         initFragment();
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+
+                onFinishCommunication();
+
+            }
+        };
+
+        getOnBackPressedDispatcher().addCallback(callback);
 
     }
 

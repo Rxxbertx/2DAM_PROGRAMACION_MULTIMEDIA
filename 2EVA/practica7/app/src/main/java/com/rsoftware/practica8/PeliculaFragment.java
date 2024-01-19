@@ -2,7 +2,6 @@ package com.rsoftware.practica8;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,9 +43,9 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
             PeliculaCollection temp = new PeliculaCollection();
 
 
-
+            positionAdapter = getArguments().getInt("positionAdapter");
             pelicula = (Pelicula) getArguments().getSerializable("pelicula");
-            temp.addPelicula(temp.getPeliculas().indexOf(pelicula),pelicula);
+            pelicula = temp.getPelicula(temp.getPeliculas().indexOf(pelicula));
 
 
         }
