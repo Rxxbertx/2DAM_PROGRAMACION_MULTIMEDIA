@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="CustomRatingBar" parent="Widget.AppCompat.RatingBar">
+    <item name="android:progressTint">#FFD600</item>
+    <item name="android:progressBackgroundTint">#5F5E5D</item>
+    </style>
+
+</resources>

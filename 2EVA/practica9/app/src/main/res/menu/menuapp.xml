@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/allFilms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/mostrar_todas_las_peliculas" />
+    <item
+        android:id="@+id/ratedFilms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/mostrar_peliculas_vistas" />
+    <item
+        android:id="@+id/app_bar_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/nightmode"
+        android:title="Switch"
+        app:showAsAction="always" />
+</menu>

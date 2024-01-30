@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name" translatable="false">PRACTICA 8</string>
+    <string name="pelis_top">PELIS TOP</string>
+    <string name="error_al_cargar_pelicula">Error al cargar información de la película</string>
+    <string name="directores">DIRECTORES</string>
+    <string name="actores">ACTORES</string>
+    <string name="sinopsis">SINOPSIS</string>
+    <string name="volver">Volver</string>
+    <string name="mostrar_peliculas_vistas">MOSTRAR PELICULAS VALORADAS</string>
+    <string name="peliculas_actualizadas_correctamente">PELICULAS ACTUALIZADAS CORRECTAMENTE</string>
+    <string name="mostrar_todas_las_peliculas">MOSTRAR TODAS LAS PELICULAS</string>
+</resources>

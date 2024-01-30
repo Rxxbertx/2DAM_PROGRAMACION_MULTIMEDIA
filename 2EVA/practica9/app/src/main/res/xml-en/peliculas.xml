@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<peliculas xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <pelicula id="tagCars">
+        <titulo>CARS</titulo>
+        <anio>2006</anio>
+        <rating>5</rating>
+        <img>cars</img>
+        <director>John Lasseter, Joe Ranft</director>
+        <actor>Owen Wilson, Bonnie Hunt, Paul Newman</actor>
+        <sinopsis>Lightning McQueen, a rookie and selfish race car, discovers the importance of friendship and humility when he gets stuck in Radiator Springs.</sinopsis>
+    </pelicula>
+
+    <pelicula id="tagParasite">
+        <titulo>PARASITE</titulo>
+        <anio>2019</anio>
+        <rating>5</rating>
+        <img>parasite</img>
+        <director>Bong Joon-ho</director>
+        <actor>Kang-ho Song, Sun-kyun Lee, Yeo-jeong Jo</actor>
+        <sinopsis>A cunning and unscrupulous unemployed family, the Kims, infiltrates the life of the wealthy and glamorous Park family, intertwining destinies that lead to unexpected consequences.</sinopsis>
+    </pelicula>
+
+    <pelicula id="tagWhiplash">
+        <titulo>WHIPLASH</titulo>
+        <anio>2014</anio>
+
+        <rating>0</rating>
+        <img>whiplash</img>
+        <director>Damien Chazelle</director>
+        <actor>Miles Teller, J.K. Simmons, Paul Reiser</actor>
+        <sinopsis>A talented young drummer is under the tutelage of a demanding and perfectionist teacher who pushes him to the limits of his abilities and sanity.</sinopsis>
+    </pelicula>
+
+    <pelicula id="tagShape">
+        <titulo>THE SHAPE OF WATER</titulo>
+        <anio>2017</anio>
+        <rating>3</rating>
+        <img>water</img>
+        <director>Guillermo del Toro</director>
+        <actor>Sally Hawkins, Michael Shannon, Octavia Spencer</actor>
+        <sinopsis>In the Cold War era, a mute woman works in a high-security laboratory and forms a unique bond with a captive aquatic creature.</sinopsis>
+    </pelicula>
+
+
+    <pelicula id="tagAnotherRound">
+        <titulo>Another Round</titulo>
+        <anio>2020</anio>
+        <rating>4.3</rating>
+        <img>anotherround</img>
+        <director>Thomas Vinterberg</director>
+        <actor>Mads Mikkelsen, Thomas Bo Larsen, Magnus Millang</actor>
+        <sinopsis>Four teachers decide to experiment by maintaining a constant level of alcohol in their systems throughout the day to improve their lives. However, they soon realize it can spiral out of control.</sinopsis>
+    </pelicula>
+
+
+    <pelicula id="tagNomadland">
+        <titulo>Nomadland</titulo>
+        <anio>2020</anio>
+        <rating>0</rating>
+        <img>nomadland</img>
+        <director>Chloé Zhao</director>
+        <actor>Frances McDormand, David Strathairn, Linda May</actor>
+        <sinopsis>A woman, after the economic collapse of a company in a rural town, becomes a nomad in the American West, exploring life outside conventional society while traveling in a camper van.</sinopsis>
+    </pelicula>
+
+
+    <pelicula id="tagDune">
+        <titulo>Dune</titulo>
+        <anio>2021</anio>
+        <rating>4.5</rating>
+        <img>dune</img>
+        <director>Denis Villeneuve</director>
+        <actor>Timothée Chalamet, Rebecca Ferguson, Oscar Isaac</actor>
+        <sinopsis>In the distant future, Paul Atreides, a young noble of the Atreides family, is destined to rule the desert planet Arrakis, the only known source of the most valuable spice in the universe.</sinopsis>
+    </pelicula>
+
+
+    <pelicula id="tagSoul">
+        <titulo>Soul</titulo>
+        <anio>2020</anio>
+        <rating>4.7</rating>
+        <img>soul</img>
+        <director>Pete Docter, Kemp Powers</director>
+        <actor>Jamie Foxx, Tina Fey, Graham Norton</actor>
+        <sinopsis>A musician who has lost his passion for life is transported out of his body and must find his way back with the help of a child's soul learning about itself.</sinopsis>
+    </pelicula>
+
+
+    <pelicula id="tagLaLaLand">
+        <titulo>La La Land</titulo>
+        <anio>2016</anio>
+        <rating>0</rating>
+        <img>lalaland</img>
+        <director>Damien Chazelle</director>
+        <actor>Ryan Gosling, Emma Stone, John Legend</actor>
+        <sinopsis>In Los Angeles, a jazz pianist and an aspiring actress fall in love while pursuing their dreams and facing the challenges of artistic life.</sinopsis>
+    </pelicula>
+
+
+    <pelicula id="tagInception">
+        <titulo>Inception</titulo>
+        <anio>2010</anio>
+        <rating>0</rating>
+        <img>inception</img>
+        <director>Christopher Nolan</director>
+        <actor>Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page</actor>
+        <sinopsis>Dom Cobb, a skilled thief, specializes in extracting valuable secrets from people's dreams. Now, he faces the opposite task: implanting an idea in someone else's mind.</sinopsis>
+    </pelicula>
+
+</peliculas>

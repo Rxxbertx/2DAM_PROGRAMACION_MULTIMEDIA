@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="tagparasite" translatable="false">tagParasite</string>
+    <string name="tagwhiplash" translatable="false">tagWhiplash</string>
+    <string name="tagcars" translatable="false">tagCars</string>
+    <string name="tagshape" translatable="false">tagShape</string>
+
+</resources>
