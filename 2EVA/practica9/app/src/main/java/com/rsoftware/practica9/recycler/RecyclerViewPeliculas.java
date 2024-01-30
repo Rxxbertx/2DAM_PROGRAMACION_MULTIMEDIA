@@ -50,6 +50,11 @@ public class RecyclerViewPeliculas extends RecyclerView.Adapter<RecyclerViewPeli
         // Obtener el ID del recurso drawable
         int resourceId = holder.context.getResources().getIdentifier(peliculaCollection.get(position).getFoto(),"drawable", holder.context.getPackageName());
 
+        if (peliculaCollection.get(position).getVista()){
+            holder.visto.setVisibility(View.VISIBLE);
+        }else {
+            holder.visto.setVisibility(View.INVISIBLE);
+        }
 
         holder.titulo.setText(peliculaCollection.get(position).getTitulo());
         holder.foto.setImageResource(resourceId);
@@ -75,6 +80,8 @@ public class RecyclerViewPeliculas extends RecyclerView.Adapter<RecyclerViewPeli
 
         private final LinearLayout layout;
 
+        private final ImageView visto;
+
         private final TextView director;
         private final Context context;
 
@@ -85,7 +92,7 @@ public class RecyclerViewPeliculas extends RecyclerView.Adapter<RecyclerViewPeli
             foto = itemView.findViewById(R.id.img);
             ratingBar = itemView.findViewById(R.id.rb);
             director = itemView.findViewById(R.id.txtDirector);
-
+            visto = itemView.findViewById(R.id.visto);
             layout=itemView.findViewById(R.id.layout);
             context = itemView.getContext();
 

@@ -12,11 +12,12 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/elevatedButton"
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:backgroundTint="#7E63BF"
+            android:onClick="onClick"
             android:text="@string/volver"
             android:textColor="#F9FBE7"
             android:textSize="20sp"
@@ -28,20 +29,21 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/rmvBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#404040"
             android:drawableStart="@android:drawable/ic_menu_delete"
             android:drawablePadding="0dp"
             android:includeFontPadding="false"
+            android:onClick="onClick"
             android:padding="0dp"
             app:icon="@android:drawable/ic_menu_delete"
             app:iconGravity="textTop"
             app:iconPadding="0dp"
             app:iconSize="30dp"
             app:layout_constraintEnd_toEndOf="@+id/cardView2"
-            app:layout_constraintTop_toTopOf="@+id/elevatedButton"
+            app:layout_constraintTop_toTopOf="@+id/backBtn"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <androidx.cardview.widget.CardView
@@ -54,7 +56,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/elevatedButton">
+            app:layout_constraintTop_toBottomOf="@+id/backBtn">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,136 +79,111 @@
 
                 <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="20dp"
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <LinearLayout
-                            android:id="@+id/linearLayout"
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="221dp"
+                            android:layout_height="174dp" />
+
+                        <TextView
+                            android:id="@+id/textViewNombre"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                            android:fontFamily="@font/aldrich"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
 
-                            <ImageView
-                                android:id="@+id/imageView"
-                                android:layout_width="221dp"
-                                android:layout_height="174dp" />
+                        <TextView
+                            android:id="@+id/textViewAnio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/aldrich"
+                            android:textAlignment="center"
+                            android:textColor="#ABABAB"
+                            android:textSize="20sp" />
 
-                            <TextView
-                                android:id="@+id/textViewNombre"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/aldrich"
-                                android:textAlignment="center"
-                                android:textColor="#FFFFFF"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
+                        <RatingBar
+                            android:id="@+id/ratingBar"
+                            style="@style/CustomRatingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:max="5"
+                            android:numStars="5" />
 
-                            <TextView
-                                android:id="@+id/textViewAnio"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/aldrich"
-                                android:textAlignment="center"
-                                android:textColor="#ABABAB"
-                                android:textSize="20sp" />
-
-                            <RatingBar
-                                android:id="@+id/ratingBar"
-                                style="@style/CustomRatingBar"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:max="5"
-                                android:numStars="5" />
-                        </LinearLayout>
-
-                        <ScrollView
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
-                            android:foregroundGravity="center">
+                            android:fontFamily="@font/aldrich"
+                            android:gravity="center"
+                            android:text="@string/directores"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/textViewDirectores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/aldrich"
+                            android:textAlignment="center"
+                            android:textColor="#ABABAB"
+                            android:textSize="20sp" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="@font/aldrich"
-                                    android:gravity="center"
-                                    android:text="@string/directores"
-                                    android:textAlignment="center"
-                                    android:textColor="#FFFFFF"
-                                    android:textSize="24sp"
-                                    android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/aldrich"
+                            android:text="@string/actores"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
 
-                                <TextView
-                                    android:id="@+id/textViewDirectores"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="@font/aldrich"
-                                    android:textAlignment="center"
-                                    android:textColor="#ABABAB"
-                                    android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/textViewActores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/aldrich"
+                            android:textAlignment="center"
+                            android:textColor="#ABABAB"
+                            android:textSize="20sp" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="@font/aldrich"
-                                    android:text="@string/actores"
-                                    android:textAlignment="center"
-                                    android:textColor="#FFFFFF"
-                                    android:textSize="24sp"
-                                    android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/aldrich"
+                            android:text="@string/sinopsis"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
 
-                                <TextView
-                                    android:id="@+id/textViewActores"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="@font/aldrich"
-                                    android:textAlignment="center"
-                                    android:textColor="#ABABAB"
-                                    android:textSize="20sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="@font/aldrich"
-                                    android:text="@string/sinopsis"
-                                    android:textAlignment="center"
-                                    android:textColor="#FFFFFF"
-                                    android:textSize="24sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/textViewSinopsis"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="@font/aldrich"
-                                    android:textAlignment="center"
-                                    android:textColor="#ABABAB"
-                                    android:textSize="20sp"
-                                    android:textStyle="italic" />
-                            </LinearLayout>
-                        </ScrollView>
-
+                        <TextView
+                            android:id="@+id/textViewSinopsis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/aldrich"
+                            android:textAlignment="center"
+                            android:textColor="#ABABAB"
+                            android:textSize="20sp"
+                            android:textStyle="italic" />
                     </LinearLayout>
                 </ScrollView>
             </LinearLayout>

@@ -11,6 +11,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import com.rsoftware.practica9.model.Pelicula;
@@ -24,10 +25,13 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
     private TextView anio;
     private TextView actor;
     private TextView director;
+private SwitchCompat vista;
     private TextView sinopsis;
     private RatingBar puntuacion;
 
-    private Button boton;
+    private Button backBtn;
+
+    private Button rmvBtn;
     private int positionAdapter;
 
     public PeliculaFragment() {
@@ -63,7 +67,8 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
             director.setText(pelicula.getDirector());
             sinopsis.setText(pelicula.getSinopsis());
             img.setImageResource(getResources().getIdentifier(pelicula.getFoto(),"drawable", getContext().getPackageName()));
-            boton.setOnClickListener(this);
+            backBtn.setOnClickListener(this);
+            rmvBtn.setOnClickListener(this);
 
         }
     }
@@ -95,14 +100,16 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
         actor = view.findViewById(R.id.textViewActores);
         director = view.findViewById(R.id.textViewDirectores);
         sinopsis = view.findViewById(R.id.textViewSinopsis);
-        boton=view.findViewById(R.id.elevatedButton);
+        backBtn=view.findViewById(R.id.backBtn);
+        rmvBtn=view.findViewById(R.id.rmvBtn);
+        vista = view.findViewById(R.id.switch1);
         cargarDatos(); // Llama a cargarDatos() aquí si deseas que los datos se carguen automáticamente al crear el fragmento.
-        crearListener(puntuacion);
+        crearListeners(puntuacion, vista);
 
         return view;
     }
 
-    private void crearListener(RatingBar puntuacion) {
+    private void crearListeners(RatingBar puntuacion, SwitchCompat vista) {
 
         puntuacion.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
 
@@ -112,14 +119,25 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
 
         });
 
+        vista.setOnCheckedChangeListener((buttonView, isChecked) -> pelicula.setVista(isChecked));
+
     }
 
     @Override
     public void onClick(View v) {
 
-    listener.onFinishCommunication();
+        if (v.getId()==R.id.rmvBtn){
+
+            PeliculaCollection pc = new PeliculaCollection();
+
+            pc.removePelicula(pelicula);
+        }
+            listener.onFinishCommunication();
+
+
 
     }
+
 
 
     // Interfaz para comunicarse con la actividad

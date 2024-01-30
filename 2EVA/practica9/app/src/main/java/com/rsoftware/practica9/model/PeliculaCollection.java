@@ -24,7 +24,7 @@ public class PeliculaCollection {
         for (Pelicula pelicula:
              peliculas) {
 
-            if (pelicula.getValoracion()>0)
+            if (pelicula.getVista())
                 temp.add(pelicula);
 
         }

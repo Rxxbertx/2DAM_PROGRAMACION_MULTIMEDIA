@@ -2,6 +2,7 @@ package com.rsoftware.practica9;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
     private static boolean appStarted = false;
     private static boolean recyclerFilmsCondition = false;
 
-    private SwitchCompat switchView;
+    private SharedPreferences sharedPrefs;
+    private MenuItem switchView;
 
 
     @Override
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar(findViewById(R.id.materialToolbar));
+        sharedPrefs = getPreferences(MODE_PRIVATE);
         context = this;
         peliculaCollection = new PeliculaCollection();
         recycler =  findViewById(R.id.recycler);
@@ -212,6 +216,12 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
         getMenuInflater().inflate(R.menu.menuapp,menu);
 
+        switchView = menu.findItem(R.id.app_bar_switch);
+
+        switchView.setChecked(sharedPrefs.getBoolean("nightMode",false));
+        switchView.setIcon(switchView.isChecked()?R.drawable.nightmode:R.drawable.lightmode);
+        AppCompatDelegate.setDefaultNightMode(switchView.isChecked()?AppCompatDelegate.MODE_NIGHT_YES:AppCompatDelegate.MODE_NIGHT_NO);
+
 
         return true;
     }
@@ -225,7 +235,11 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
             mostrarPeliculas();
         if (item.getItemId()== R.id.app_bar_switch){
             item.setChecked(!item.isChecked());
-            item.setIcon(item.isChecked()?R.drawable.nightmode:R.drawable.lightmode);}
+            sharedPrefs.edit().putBoolean("nightMode",item.isChecked()).apply();
+            item.setIcon(item.isChecked()?R.drawable.nightmode:R.drawable.lightmode);
+            AppCompatDelegate.setDefaultNightMode(switchView.isChecked()?AppCompatDelegate.MODE_NIGHT_YES:AppCompatDelegate.MODE_NIGHT_NO);
+            return true;
+        }
 
         Toast.makeText(this, getString(R.string.peliculas_actualizadas_correctamente),Toast.LENGTH_LONG).show();
 
@@ -251,6 +265,8 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
         if (fragment != null) findViewById(R.id.fragmentContainerView).setVisibility(View.GONE);
         salidaFragment = true;
+        recycler.getAdapter().notifyDataSetChanged();
+
     }
 
 

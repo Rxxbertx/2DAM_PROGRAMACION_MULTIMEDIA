@@ -16,7 +16,7 @@ public class Pelicula implements Serializable {
 
     private final int id;
 
-    private final boolean vista;
+    private boolean vista;
 
     private boolean valorada=false;
 
@@ -66,6 +66,10 @@ public class Pelicula implements Serializable {
         return vista;
     }
 
+    public void setVista(boolean isChecked) {
+
+        this.vista=isChecked;
+    }
     public void setValoracion(float valoracionNew) {
         valoracion=valoracionNew;
     }
@@ -100,22 +104,6 @@ public class Pelicula implements Serializable {
     public int hashCode() {
         return titulo != null ? titulo.hashCode() : 0;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
