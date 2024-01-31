@@ -4,9 +4,9 @@
 
 ### EXAMEN 1EVA CONVERSOR MONEDAS
 
-![Imagen del proyecto](1EVA/Examen1Ev1_RJT/img/conversor.png)
+![Imagen del proyecto](1EVA/Examen1Ev1_RJT/imagenes/conversor.png)
 
-Descripción del proyecto [Examen1EVA](1EVA/Examen1Ev1_RJT/README.MD).
+Descripción del proyecto [Examen1EVA](1EVA/Examen1Ev1_RJT/).
 
 ### PRACTICA 3 CONTADOR
 
