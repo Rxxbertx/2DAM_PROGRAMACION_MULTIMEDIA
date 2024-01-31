@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
+import com.rsoftware.practica9.db.PeliculasDAO;
 import com.rsoftware.practica9.model.Pelicula;
 import com.rsoftware.practica9.model.PeliculaCollection;
 
@@ -25,7 +26,7 @@ public class PeliculaFragment extends Fragment implements View.OnClickListener {
     private TextView anio;
     private TextView actor;
     private TextView director;
-private SwitchCompat vista;
+    private SwitchCompat vista;
     private TextView sinopsis;
     private RatingBar puntuacion;
 
@@ -55,18 +56,19 @@ private SwitchCompat vista;
         }
 
 
-
     }
 
     private void cargarDatos() {
         if (pelicula != null) {
+
+            vista.setChecked(pelicula.getVista());
             actor.setText(pelicula.getActor());
             nombre.setText(pelicula.getTitulo());
             anio.setText(pelicula.getAnio());
             puntuacion.setRating(pelicula.getValoracion());
             director.setText(pelicula.getDirector());
             sinopsis.setText(pelicula.getSinopsis());
-            img.setImageResource(getResources().getIdentifier(pelicula.getFoto(),"drawable", getContext().getPackageName()));
+            img.setImageResource(getResources().getIdentifier(pelicula.getFoto(), "drawable", getContext().getPackageName()));
             backBtn.setOnClickListener(this);
             rmvBtn.setOnClickListener(this);
 
@@ -87,8 +89,6 @@ private SwitchCompat vista;
     }
 
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -100,8 +100,8 @@ private SwitchCompat vista;
         actor = view.findViewById(R.id.textViewActores);
         director = view.findViewById(R.id.textViewDirectores);
         sinopsis = view.findViewById(R.id.textViewSinopsis);
-        backBtn=view.findViewById(R.id.backBtn);
-        rmvBtn=view.findViewById(R.id.rmvBtn);
+        backBtn = view.findViewById(R.id.backBtn);
+        rmvBtn = view.findViewById(R.id.rmvBtn);
         vista = view.findViewById(R.id.switch1);
         cargarDatos(); // Llama a cargarDatos() aquí si deseas que los datos se carguen automáticamente al crear el fragmento.
         crearListeners(puntuacion, vista);
@@ -115,34 +115,39 @@ private SwitchCompat vista;
 
             if (fromUser) pelicula.setValoracion(rating);
             listener.onPuntuacionEnviada(positionAdapter);
+            PeliculasDAO.UpdatePelicula(pelicula);
 
 
         });
 
-        vista.setOnCheckedChangeListener((buttonView, isChecked) -> pelicula.setVista(isChecked));
+        vista.setOnCheckedChangeListener((buttonView, isChecked) -> {
+
+
+            pelicula.setVista(isChecked);
+
+
+            PeliculasDAO.UpdatePelicula(pelicula);
+
+        });
 
     }
 
     @Override
     public void onClick(View v) {
 
-        if (v.getId()==R.id.rmvBtn){
-
-            PeliculaCollection pc = new PeliculaCollection();
-
-            pc.removePelicula(pelicula);
+        if (v.getId() == R.id.rmvBtn) {
+            PeliculasDAO.DeletePelicula(pelicula);
         }
-            listener.onFinishCommunication();
-
+        listener.onFinishCommunication();
 
 
     }
 
 
-
     // Interfaz para comunicarse con la actividad
     public interface OnDatosEnviadosListener {
         void onPuntuacionEnviada(int positionAdapter);
+
         void onFinishCommunication();
     }
 

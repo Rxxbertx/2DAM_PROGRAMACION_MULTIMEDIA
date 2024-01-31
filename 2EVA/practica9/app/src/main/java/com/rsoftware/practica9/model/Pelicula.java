@@ -1,5 +1,9 @@
 package com.rsoftware.practica9.model;
 
+import android.content.ContentValues;
+
+import com.rsoftware.practica9.db.DBContract;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -14,12 +18,11 @@ public class Pelicula implements Serializable {
     private float valoracion;
     private final String foto;
 
-    private final int id;
-
     private boolean vista;
 
     private boolean valorada=false;
 
+    private long id;
 
 
     public boolean isValorada() {
@@ -58,10 +61,6 @@ public class Pelicula implements Serializable {
     }
 
 
-    public int getId() {
-        return id;
-    }
-
     public boolean getVista() {
         return vista;
     }
@@ -76,9 +75,9 @@ public class Pelicula implements Serializable {
 
 
 
-    public Pelicula(int id, boolean vista, String foto, String titulo, String anio, String actor, String director, String sinopsis, float valoracion){
+    public Pelicula(boolean vista, String foto, String titulo, String anio, String actor, String director, String sinopsis, float valoracion){
 
-        this.id=id;
+
         this.vista=vista;
         this.foto=foto;
         this.titulo = titulo;
@@ -90,6 +89,19 @@ public class Pelicula implements Serializable {
     }
 
 
+
+    public ContentValues toContentValues() {
+        ContentValues values = new ContentValues();
+        values.put(DBContract.DBPeliculaColumnas.COLUMN_NAME_TITULO, titulo);
+        values.put(DBContract.DBPeliculaColumnas.COLUMN_NAME_ANIO, anio);
+        values.put(DBContract.DBPeliculaColumnas.COLUMN_NAME_ACTOR, actor);
+        values.put(DBContract.DBPeliculaColumnas.COLUMN_NAME_DIRECTOR, director);
+        values.put(DBContract.DBPeliculaColumnas.COLUMN_NAME_VISTA, vista);
+        values.put(DBContract.DBPeliculaColumnas.COLUMN_NAME_SINOPSIS, sinopsis);
+        values.put(DBContract.DBPeliculaColumnas.COLUMN_NAME_PUNTUACION, valoracion);
+        values.put(DBContract.DBPeliculaColumnas.COLUMN_NAME_FOTO, foto);
+        return values;
+    }
 
 
     @Override
@@ -106,5 +118,13 @@ public class Pelicula implements Serializable {
     }
 
 
+    public void setId(long newRowId) {
 
+        this.id = newRowId;
+    }
+
+    public long getId() {
+
+        return id;
+    }
 }

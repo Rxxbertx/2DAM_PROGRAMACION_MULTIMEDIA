@@ -6,7 +6,11 @@
     <string name="actores">ACTORS</string>
     <string name="sinopsis">SYNOPSIS</string>
     <string name="volver">Back</string>
-    <string name="mostrar_peliculas_vistas">SHOW ONLY RATED FILMS</string>
+    <string name="mostrar_peliculas_vistas">SHOW WATCHED MOVIES</string>
     <string name="peliculas_actualizadas_correctamente">FILMS UPDATED SUCCESFULLY</string>
     <string name="mostrar_todas_las_peliculas">SHOW ALL FILMS</string>
+    <string name="seleccione_una_imagen">Select an Image</string>
+    <string name="titulo">TITLE</string>
+    <string name="a_o">YEAR</string>
+    <string name="rellene_todos_los_campos">Please fill the fields</string>
 </resources>

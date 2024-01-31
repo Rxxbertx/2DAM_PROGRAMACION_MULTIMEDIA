@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="peliculas">
+
+        <item>defecto</item>
+        <item>cars</item>
+        <item>dune</item>
+        <item>anotherround</item>
+        <item>inception</item>
+        <item>lalaland</item>
+        <item>parasite</item>
+        <item>nomadland</item>
+        <item>soul</item>
+        <item>water</item>
+        <item>whiplash</item>
+
+    </string-array>
+
+
+</resources>

@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.rsoftware.practica9.R;
+import com.rsoftware.practica9.db.PeliculasDAO;
 import com.rsoftware.practica9.model.Pelicula;
 import com.rsoftware.practica9.model.PeliculaCollection;
 
@@ -73,6 +74,7 @@ public class CrearPeliculaDialog extends DialogFragment {
     private void crearPelicula(View view) {
 
         if (comprobarCampos(view)){
+
             listener.crearPeliculaListener(peliculaCollection.size()-1);
             dismiss();
         }
@@ -92,20 +94,22 @@ public class CrearPeliculaDialog extends DialogFragment {
         if (titulo.getText().toString().isEmpty() || anio.getText().toString().isEmpty() || actor.getText().toString().isEmpty() || director.getText().toString().isEmpty() || sinopsis.getText().toString().isEmpty() || imagen.getSelectedItem()==null)
         {
 
-            Toast.makeText(getContext(), "Rellene todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.rellene_todos_los_campos), Toast.LENGTH_SHORT).show();
 
         } else {
-            int id = 0;
-            peliculaCollection.addPelicula(new Pelicula(
-                    id,
+
+            Pelicula pelicula = new Pelicula(
                     false,
-                    titulo.getText().toString(),
                     imagen.getSelectedItem().toString(),
+                    titulo.getText().toString(),
                     anio.getText().toString(),
                     actor.getText().toString(),
                     director.getText().toString(),
                     sinopsis.getText().toString(),
-                    0.0f));
+                    0.0f);
+
+
+            PeliculasDAO.CreatePelicula(pelicula);
 
 
 

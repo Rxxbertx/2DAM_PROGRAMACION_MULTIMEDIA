@@ -3,9 +3,7 @@ package com.rsoftware.practica9;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.XmlResourceParser;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,16 +12,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.rsoftware.practica9.db.PeliculasDAO;
 import com.rsoftware.practica9.dialog.CrearPeliculaDialog;
 import com.rsoftware.practica9.model.Pelicula;
 import com.rsoftware.practica9.model.PeliculaCollection;
 import com.rsoftware.practica9.recycler.RecyclerViewPeliculas;
-
-import org.xmlpull.v1.XmlPullParser;
 
 public class MainActivity extends AppCompatActivity implements PeliculaFragment.OnDatosEnviadosListener, RecyclerViewPeliculas.OnClickListenerRecyclerView, CrearPeliculaDialog.CrearPeliculaDialogListener {
 
@@ -65,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
         }
 
     }
-
     private void mostrarPeliculas() {
 
 
@@ -80,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
 
     }
-
     public void mostrarPeliculasValoradas() {
 
 
@@ -91,70 +85,15 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
 
     }
-
     private void cargarPeliculas() {
 
-
-
-
-
-        try {
-            XmlResourceParser parser = getResources().getXml(R.xml.peliculas);
-
-            while (parser.next() != XmlPullParser.END_DOCUMENT) {
-                if (parser.getEventType() == XmlPullParser.START_TAG && "pelicula".equals(parser.getName())) {
-
-                    String titulo = null, actor = null, sinopsis = null, anio = null, director = null, foto = null;
-                    float rating = 0;
-
-                    while (parser.next() != XmlPullParser.END_DOCUMENT && !(parser.getEventType() == XmlPullParser.END_TAG && "pelicula".equals(parser.getName()))) {
-                        if (parser.getEventType() == XmlPullParser.START_TAG) {
-
-                            String nombreTag = parser.getName();
-
-                            if ("anio".equals(nombreTag)) {
-                                parser.next();
-                                anio = parser.getText();
-                            } else if ("actor".equals(nombreTag)) {
-                                parser.next();
-                                actor = parser.getText();
-                            } else if ("sinopsis".equals(nombreTag)) {
-                                parser.next();
-                                sinopsis = parser.getText();
-                            } else if ("titulo".equals(nombreTag)) {
-                                parser.next();
-                                titulo = parser.getText();
-                            } else if ("director".equals(nombreTag)) {
-                                parser.next();
-                                director = parser.getText();
-                            } else if ("img".equals(nombreTag)) {
-                                parser.next();
-                                foto = parser.getText();
-                            } else if ("rating".equals(nombreTag)) {
-
-                                parser.next();
-                                rating = Float.parseFloat(parser.getText());
-                            }
-
-
-                        }
-                    }
-                    peliculaCollection.addPelicula(new Pelicula(1,true,foto, titulo, anio, actor, director, sinopsis, rating));
-
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        PeliculasDAO.ReadPeliculas();
 
     }
-
-
     private boolean comprobarFragment() {
 
         return (fragment = findViewById(R.id.fragmentContainerView)) != null;
     }
-
     private void crearActividad() {
 
 
@@ -164,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
 
     }
-
     @Override
     public void verDetallesPelicula(Pelicula pelicula,int positionAdapter) {
 
@@ -187,7 +125,6 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
         }
 
     }
-
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -200,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
         }
 
     }
-
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -210,7 +146,6 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -225,7 +160,6 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -245,21 +179,12 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
 
         return true;
     }
-
-
-
-
-
-
     @Override
     public void onPuntuacionEnviada(int positionAdapter) {
 
-
-        Log.d("adapter position", "onPuntuacionEnviada: "+positionAdapter);
          recycler.getAdapter().notifyItemChanged(positionAdapter);
 
     }
-
     @Override
     public void onFinishCommunication() {
 
@@ -268,15 +193,13 @@ public class MainActivity extends AppCompatActivity implements PeliculaFragment.
         recycler.getAdapter().notifyDataSetChanged();
 
     }
-
-
     @Override
     public void crearPeliculaListener(int position) {
 
-            recycler.getAdapter().notifyItemInserted(recycler.getAdapter().getItemCount());
+            recycler.getAdapter().notifyItemInserted(recycler.getAdapter().getItemCount()-1);
+            recycler.getLayoutManager().scrollToPosition(recycler.getAdapter().getItemCount()-1);
 
     }
-
     public void crearPeliculaBtn(View view) {
 
             new CrearPeliculaDialog().show(getSupportFragmentManager(),"crearPeliculaDialog");
