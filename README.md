@@ -4,7 +4,7 @@
 
 ### EXAMEN 1EVA CONVERSOR MONEDAS
 
-![Imagen del proyecto](1EVA/Examen1Ev1_RJT/imagenes/conversor.png)
+![Imagen del proyecto](1EVA/Examen1Ev1_RJT/img/conversor.png)
 
 Descripción del proyecto [Examen1EVA](1EVA/Examen1Ev1_RJT/README.MD).
 
@@ -30,7 +30,7 @@ Descripción del proyecto [PRACTICA_MINIGAME](1EVA/PRACTICA_MINIGAME/)
 
 ### PRACTICA 6 Cuestionario de Tecnología (FRAGMENT)
 
-![Imagen del proyecto](2EVA/Practica6/practica6.png)
+![Imagen del proyecto](2EVA/Practica6/imagenes/practica6.png)
 
 Descripción del proyecto [Practica6](2EVA/Practica6/)
 
