@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "471938737177",
+    "project_id": "com-rsfotware-firebase",
+    "storage_bucket": "com-rsfotware-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471938737177:android:1ffb1e67f07a808f2bf688",
+        "android_client_info": {
+          "package_name": "com.rsoftware.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyI4Saf-DAhkSLtAGPyJfUiqsylFClhHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
