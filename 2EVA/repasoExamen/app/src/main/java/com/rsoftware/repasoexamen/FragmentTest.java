@@ -1,13 +1,16 @@
 package com.rsoftware.repasoexamen;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,39 +30,17 @@ public class FragmentTest extends Fragment {
     private  Button button;
 
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
 
-    public FragmentTest() {
-        // Required empty public constructor
-    }
+        listenerActivity = (MainActivity)context;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentTest.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentTest newInstance(String param1, String param2) {
-        FragmentTest fragment = new FragmentTest();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -72,19 +53,18 @@ public class FragmentTest extends Fragment {
 
         button.setOnClickListener((v)->{
 
-
-
-
-
-
-
-
-
+            listenerActivity.enviarDatosListener();
 
         });
 
         return view;
 
+
+    }
+
+    public void mandarDatos() {
+
+        Toast.makeText(getContext(), "DATOS RECIBIDOS DEL ACTIVITY", Toast.LENGTH_SHORT).show();
 
     }
 
