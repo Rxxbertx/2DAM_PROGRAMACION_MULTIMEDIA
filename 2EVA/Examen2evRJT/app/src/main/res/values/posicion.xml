@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="posiciones">
+
+        <item>Todas las posiciones</item>
+        <item>PG (Point Guard)</item>
+        <item>SG (Shooting Guard)</item>
+        <item>SF (Small Forward)</item>
+        <item>PF (Power Forward)</item>
+        <item>C (Center)</item>
+
+    </string-array>
+
+
+
+</resources>
